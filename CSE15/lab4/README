@@ -1,0 +1,21 @@
+README
+/*
+* Name:Kuo-Peng Huang
+* UCSC ID:khuang53
+* Class:CSE15
+* Role:Information regarding files and compile instruction for lab4
+* Assignment:Lab4
+* Date:Nov 21,2019
+*/
+
+LAB4 FILES SUBMITTED
+-README
+-Makefile
+-ArithmeticOperations.c
+
+Compile Intruction-
+Run the following code:make ArithmeticOperations
+Type "ArithmeticOperations" followed by the name of the input file to run the code. (ex. Arithmetic Operations in1)
+
+
+

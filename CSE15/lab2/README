@@ -1,0 +1,21 @@
+README
+/*
+* Name:Kuo-Peng Huang
+* UCSC ID:khuang53
+* Class:CSE15
+* Role:Information regarding files and compile instruction for lab2
+* Assignment:Lab2
+* Date:Oct 21,2019
+*/
+
+LAB2 FILES SUBMITTED
+-README
+-Makefile
+-charType.c
+
+Compile Intruction-
+Run the following code:make charType
+Type "charType" followed by the name of the input and output file to run the code. (ex. charType In Out)
+
+
+

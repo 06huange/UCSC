@@ -1,0 +1,22 @@
+README
+/*
+* Name:Kuo-Peng Huang
+* UCSC ID:khuang53
+* Class:CSE15
+* Role:Information regarding files and compile instruction for lab3
+* Assignment:Lab3
+* Date:Nov 7,2019
+*/
+
+LAB3 FILES SUBMITTED
+-README
+-Makefile
+-IntegerStack.c
+-IntegerStack.h
+-IntegerStackTest.c
+
+
+Compile Intruction-
+Run the following code:make IntegerStackTest
+Type "IntegerStackTest" to run the test for IntegerStack.c
+

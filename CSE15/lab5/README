@@ -1,0 +1,18 @@
+//README
+/*
+# Name:Kuo-Peng Huang
+# UCSC ID:khuang53
+# Class:CSE15
+# Role:information for lab5
+# Assignment:Lab5
+# Date:Dec 5,2019
+*/
+
+LAB5 FILES SUBMITTED
+-README
+-Makefile
+-SortString.c
+
+Compile Intruction-
+Run the following code:make ArithmeticOperations
+Type "SortString" followed by the name of the input file and output file to run the code. (ex. SortString input output)

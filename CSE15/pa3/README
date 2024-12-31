@@ -1,0 +1,24 @@
+README
+
+#---------------------------------------------------
+#---------------------------------------------------
+#
+# Name:Kuo-Peng Huang
+# UCSC ID:khuang53
+# Class:CSE15
+# Role:INFO for pa3
+# Assignment:pa3
+# Date:Nov 17,2019
+#
+
+PA3 FILES SUBMITTED
+-README
+-Makefile
+-Dictionary.c
+-DictionaryTest.c
+-Dictionary.h
+
+Compile Instruction-
+Run the following code:make
+Type "DictionaryClient2" to run the program
+

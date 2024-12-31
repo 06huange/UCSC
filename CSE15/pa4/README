@@ -1,0 +1,29 @@
+README
+
+#---------------------------------------------------
+#---------------------------------------------------
+#
+# Name:Kuo-Peng Huang
+# UCSC ID:khuang53
+# Class:CSE15
+# Role:INFO for pa4
+# Assignment:pa4
+# Date:Dec 3,2019
+#
+
+PA3 FILES SUBMITTED
+-README
+-Makefile
+-IntegerQueue.c
+-IntegerQueue.h
+-IntegerQueueTest.c
+-Simulation.c
+-Job.c
+-Job.h
+
+Compile Instruction-
+Run the following code:make
+Type "Simulation", followed by input file name to run the program
+
+Coding decisions
+-In my simulation file, I chose to create and helper function to prints to trace file as it helped me better organize my code

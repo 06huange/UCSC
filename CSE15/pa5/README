@@ -1,0 +1,19 @@
+#------------------------------------------------------------------------------
+# README
+# Name: Kuo-Peng Huang
+# UCSC ID: khuang53
+# Class: CSE15
+# Assignment:pa5
+# Date: Dec 6,2019
+# Role: README for pa5
+#------------------------------------------------------------------------------
+
+PA5 FILES SUBMITTED
+-README
+-Makefile
+-Dictionary.c 
+-DictionaryTest.c
+
+Compile Instructions-
+Run the following code: make 
+Type "DictionaryTest" to run the program

@@ -1,0 +1,23 @@
+README
+
+#---------------------------------------------------
+# Makefile for Queens.c with macros
+#---------------------------------------------------
+#
+# Name:Kuo-Peng Huang
+# UCSC ID:khuang53
+# Class:CSE15
+# Role:Makefile for pa2
+# Assignment:pa2
+# Date:Oct 28,2019
+#
+
+PA2 FILES SUBMITTED
+-README
+-Makefile
+-Queens.c
+
+Compile Instruction-
+Run the following code:make Queens
+Type "Queens" followed by optional verbose mode(-v), and a number. (ex. Queens -v 5)
+

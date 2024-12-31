@@ -1,0 +1,23 @@
+README
+
+#---------------------------------------------------
+# Makefile for Subset.c with macros
+#---------------------------------------------------
+#
+# Name:Kuo-Peng Huang
+# UCSC ID:khuang53
+# Class:CSE15
+# Role:Makefile for pa1
+# Assignment:pa1
+# Date:Oct 12,2019
+#
+
+LAB1 FILES SUBMITTED
+-README
+-Makefile
+-Subset.c
+
+Compile Instruction-
+Run the following code:make
+Type "Subset" followed by N and K values to run the code
+

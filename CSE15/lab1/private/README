@@ -1,0 +1,21 @@
+README
+/*
+* Name:Kuo-Peng Huang
+* UCSC ID:khuang53
+* Class:CSE15
+* Role:Makefile for lab1
+* Assignment:Lab1
+* Date:Oct 10,2019
+*/
+
+LAB1 FILES SUBMITTED
+-README
+-Makefile
+-MyHello.c
+
+Compile Intruction-
+Run the following code:make MyHello.o
+Type "Hello" to run the code in the file.
+
+
+

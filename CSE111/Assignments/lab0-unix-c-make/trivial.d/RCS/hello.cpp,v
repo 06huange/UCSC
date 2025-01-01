@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2020.10.01.22.41.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: hello.cpp,v 1.9 2019-04-03 13:52:31-07 - - $
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+#include "hello.h"
+
+hello::hello() {
+}
+
+hello::~hello() {
+}
+
+hello::hello (const string& message_): message(message_) {
+}
+
+void hello::say (ostream& out) {
+   out << message << endl;
+}
+
+@

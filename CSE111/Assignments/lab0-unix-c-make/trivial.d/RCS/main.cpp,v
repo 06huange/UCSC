@@ -1,0 +1,67 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2020.10.01.22.41.37;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.10.01.22.41.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: main.cpp,v 1.1 2020-10-01 15:41:24-07 - - $
+
+#include <algorithm>
+#include <cstdlib>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
+using namespace std;
+
+#include <libgen.h>
+
+#include "hello.h"
+
+int main (int argc, char** argv) {
+   string execname {basename (argv[0])};
+   vector<string> args (&argv[1], &argv[argc]);
+   hello world;
+   world.say (cout);
+   hello goodbye {"Goodbye, world!"};
+   goodbye.say (cout);
+   for (const auto& arg: args) cout << "for: " << arg << endl;
+   return EXIT_SUCCESS;
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.5 2018-06-19 17:36:22-07 - - $
+d19 1
+a19 1
+   world.ssy (cout);
+@

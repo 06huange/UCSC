@@ -1,0 +1,16 @@
+./yshell build Nov  6 2020 07:42:33
+% pwd
+/:
+  1    2  ./
+  1    2  ../
+% echo Hello World
+Hello World
+% echo This is a very simple test.
+This is a very simple test.
+% # This is a very simple test.
+% # Are comments ignored?
+% # It should not print a message like
+% # yshell: #: no such function
+% # $Id: test0.ysh,v 1.1 2013-01-02 19:11:43-08 - - $
+% ^D
+yshell: exit(0)

@@ -1,0 +1,20 @@
+commands.cpp:92:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:217:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:218:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:219:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:220:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:229:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:318:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:335:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+Done processing commands.cpp
+Total errors found: 8
+Done processing debug.cpp
+file_sys.cpp:34:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:35:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:36:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:210:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+file_sys.cpp:230:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+Done processing file_sys.cpp
+Total errors found: 5
+Done processing main.cpp
+Done processing util.cpp

@@ -1,0 +1,20 @@
+/afs/cats.ucsc.edu/courses/cse111-wm/bin/cpplint.py.perl commands.cpp
+commands.cpp:92:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:217:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:218:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:219:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:220:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:229:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:318:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:335:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+Done processing commands.cpp
+Total errors found: 8
+/afs/cats.ucsc.edu/courses/cse111-wm/bin/checksource commands.cpp
+checksource: line length > 72 characters
+   file "commands.cpp": 7 errors: lines 92, 217--220, 229, 318
+checksource: missing newline at end of line
+   file "commands.cpp": 1 errors: line 335
+checksource: TOTAL COMPLAINTS: 8
+gmake: [Makefile:31: commands.o] Error 1 (ignored)
+g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c commands.cpp
+g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -o yshell commands.o debug.o file_sys.o util.o main.o

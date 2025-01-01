@@ -1,0 +1,14 @@
+checksource: improper character \x80
+   file "README": 2 errors: lines 3, 9
+checksource: improper character \x94
+   file "README": 1 errors: line 9
+checksource: improper character \x99
+   file "README": 1 errors: line 3
+checksource: line length > 72 characters
+   file "commands.cpp": 7 errors: lines 92, 217--220, 229, 318
+   file "file_sys.cpp": 4 errors: lines 34--36, 210
+checksource: missing newline at end of line
+   file "README": 1 errors: line 9
+   file "commands.cpp": 1 errors: line 335
+   file "file_sys.cpp": 1 errors: line 230
+checksource: TOTAL COMPLAINTS: 18

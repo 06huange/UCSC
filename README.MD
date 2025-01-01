@@ -1,1 +1,1 @@
-This directory consists of my Upper Division CSE coursework as an undegraduate at UCSC.
+This directory consists of my Upper Division CSE coursework during my time as an undegraduate at UCSC. Projects and homeworks are mainly done in C and C++, with electives that focus on other languages like SQL and HTML.

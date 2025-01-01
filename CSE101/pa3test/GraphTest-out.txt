@@ -1,0 +1,17 @@
+
+
+Test DG_getSize PASSED
+Test DG_getSource PASSED
+Test DG_getParent PASSED
+Test DG_getDist PASSED
+Test DG_getPath FAILED: test 2
+Test UG_getSize PASSED
+Test UG_getSource PASSED
+Test UG_getParent PASSED
+Test UG_getDist PASSED
+Test UG_getPath FAILED: test 2
+
+You passed 8 out of 10 tests
+
+You will receive 32 out of 40 possible points on the GraphTests
+

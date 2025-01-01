@@ -1,0 +1,22 @@
+README
+
+HW1: Twain's Frequencies
+Eagle Huang
+
+--Files Submitted--
+List.c - Implementation of a Linked List with additional functions
+
+List.h - Header File for List.c
+
+twain.c - Parses twain-cleaned.txt and inserts it into Linked List, takes in 2 arguments and executes
+queries from first argument
+
+Makefile - Creates an executable to run the program
+
+README - Description and additional information regardin the program
+
+--Citation--
+(Makefile) - Referred to Makefile from last quarter, cse101 with Tantalo
+(List.c - Constructor) - Referred to Linked List I wrote last quarter, cse101 with Tantalo
+(List.c - Bubble Sort Algorithm) - "https://www.geeksforgeeks.org/bubble-sort/"
+(twain.c - read/write FILE) - Referred to my program from last quarter, cse101 with Tantalo

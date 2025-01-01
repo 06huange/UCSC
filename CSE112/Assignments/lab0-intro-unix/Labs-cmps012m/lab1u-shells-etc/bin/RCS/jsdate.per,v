@@ -1,0 +1,55 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2020.07.21.07.49.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id$
+
+use strict;
+use warnings;
+
+my %functions
+my @@functions;
+for (my $line = <DATA>) {
+   my ($function, $description) = $line =~ m/(.*)\|(.*)/g;
+   print "$function|$description\n ";
+}
+
+
+__DATA__
+getFullYear()|Get the year as a four digit number (yyyy)
+getMonth()|Get the month as a number (0-11)
+getDate()|Get the day as a number (1-31)
+getHours()|Get the hour (0-23)
+getMinutes()|Get the minute (0-59)
+getSeconds()|Get the second (0-59)
+getMilliseconds()|Get the millisecond (0-999)
+getTime()|Get the time (milliseconds since January 1, 1970)
+getDay()|Get the weekday as a number (0-6)
+Date.now()|Get the time. ECMAScript 5.
+getTimezoneOffset()|Returns the time difference between UTC time and local time, in minutes
+toDateString()|Converts the date portion of a Date object into a readable string
+toISOString()|Returns the date as a string, using the ISO standard
+toLocaleDateString()|Returns the date portion of a Date object as a string, using locale conventions
+toLocaleTimeString()|Returns the time portion of a Date object as a string, using locale conventions
+toLocaleString()|Converts a Date object to a string, using locale conventions
+toString()|Converts a Date object to a string
+@

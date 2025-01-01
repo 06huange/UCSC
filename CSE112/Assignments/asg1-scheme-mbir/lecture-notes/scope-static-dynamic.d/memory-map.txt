@@ -1,0 +1,35 @@
+
+Memory map of classic Unix process.
+
+-----------------------------------------------------------------
+
+text segment
+- machine code
+- compile time constants and strings
+
+-----------------------------------------------------------------
+
+initialized data segment
+- data declared with static attribute (C)
+  and with specific initial value
+
+-----------------------------------------------------------------
+
+uninitialized data segment
+- static data without specific initial values
+- default initialized to 0
+
+-----------------------------------------------------------------
+
+heap segment
+- data allocated at run time via new, malloc
+- data allocated before main in C++ by dynamic
+  constructors
+
+-----------------------------------------------------------------
+
+...
+...
+...
+
+-----------------------------------------------------------------

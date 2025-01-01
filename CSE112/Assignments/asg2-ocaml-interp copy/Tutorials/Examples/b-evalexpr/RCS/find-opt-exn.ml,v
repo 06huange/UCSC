@@ -1,0 +1,156 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.4
+date	2021.04.23.03.37.53;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.23.00.16.02;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.23.00.14.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.23.00.08.40;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/ocaml/bin/ocaml
+(* $Id: find-opt-exn.ml,v 1.3 2021-04-22 17:16:02-07 - - $ *)
+
+(*
+* Linear search to find an item in a list of (key*value) tuples.
+*)
+
+open Printf;;
+
+(*
+* type 'a option = None | Some 'a
+*)
+
+let rec find_opt eq want list = match list with
+    | [] -> None
+    | (key,value)::_ when eq want key -> Some value
+    | _::tail -> find_opt eq want tail;;
+
+(*
+* val find_opt : ('a -> 'b -> bool)
+*              -> 'a
+*              -> ('b * 'c) list
+*              -> 'c option = <fun>
+*)
+
+let rec find_exn eq want list = match list with
+    | [] -> raise Not_found
+    | (key,value)::_ when eq want key -> value
+    | _::tail -> find_exn eq want tail;;
+
+(*
+* val find_exn : ('a -> 'b -> bool)
+*              -> 'a
+*              -> ('b * 'c) list
+*              -> 'c = <fun>
+*)
+
+let data = [1,"one"; 3,"three"; 5,"five"; 7,"seven"; ];;
+
+printf "Data:\n";;
+List.iter (fun (key,value) -> printf "(%d, %s)\n" key value)
+          data;;
+
+let search_opt key =
+    let result = find_opt (=) key data
+    in  match result with
+        | None -> printf "%d -> None\n" key
+        | Some value -> printf "%d -> Some %s\n" key value;;
+
+let search_exn key =
+    try printf "%d -> %s\n" key (find_exn (=) key data)
+    with Not_found -> printf "%d: Not found\n" key;;
+
+printf "\nsearch_opt:\n";
+List.iter search_opt [1; 5; 7; 9; 11];;
+
+printf "\nsearch_exn:\n";
+List.iter search_exn [1; 5; 7; 9; 11];;
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: find-opt-exn.ml,v 1.2 2021-04-22 17:14:19-07 - - $ *)
+d16 1
+a16 1
+    | (key,value)::tail when eq want key -> Some value
+d28 1
+a28 1
+    | (key,value)::tail when eq want key -> value
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: find-opt-exn.ml,v 1.1 2021-04-22 17:08:40-07 - - $ *)
+a39 3
+let print (key, value) = 
+    printf "(%d, %s)\n" key value;;
+
+d41 2
+a42 1
+List.iter print data;;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: find.ml,v 1.5 2021-04-21 18:20:54-07 - - $ *)
+d10 4
+d20 4
+a23 4
+val find_opt : ('a -> 'b -> bool)
+             -> 'a
+             -> ('b * 'c) list
+             -> 'c option = <fun>
+d32 4
+a35 4
+val find_exn : ('a -> 'b -> bool)
+             -> 'a
+             -> ('b * 'c) list
+             -> 'c = <fun>
+@

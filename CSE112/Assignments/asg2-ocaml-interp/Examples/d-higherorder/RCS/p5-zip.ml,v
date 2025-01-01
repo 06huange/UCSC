@@ -1,0 +1,49 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.04.29.18.29.19;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id$ *)
+
+let rec foldl fn unit list = match list with
+    | [] -> unit
+    | car::cdr -> foldl fn (fn unit car) cdr
+
+let rec unzip list = match list with
+    | [] -> [],[]
+    | (a,b)::xs -> let axs,bxs = unzip xs
+                   in  a::axs, b::bxs;;
+
+let rec zip ls1 ls2 = match ls1, ls2 with
+    | [], [] -> []
+    | [], _ -> failwith "zip"
+    | _, [] -> failwith "zip"
+    | x::xs, y::ys -> (x,y) :: zip xs ys;;
+
+let rec zipwith fn ls1 ls2 = match ls1, ls2 with
+    | [], [] -> []
+    | [], _ -> failwith "zipwith"
+    | _, [] -> failwith "zipwith"
+    | x::xs, y::ys -> fn x y :: zipwith fn xs ys;;
+
+let innerprod lis1 lis2 =
+    foldl (+.) 0. (zipwith ( *.) lis1 lis2);;
+    
+@

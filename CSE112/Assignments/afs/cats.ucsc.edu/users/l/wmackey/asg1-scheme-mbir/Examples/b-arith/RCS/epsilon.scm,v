@@ -1,0 +1,52 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.04.07.08.10.00;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.07.08.09.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: epsilon.scm,v 1.1 2021-04-07 01:09:38-07 - - $
+
+(define (find-epsilon epsilon)
+    (let ((sum (+ 1 epsilon)))
+         (printf "(+ 1.0 ~s) = ~s~n" epsilon (+ 1.0 epsilon))
+         (when (> sum 1.0) (find-epsilon (/ epsilon 2.0)))))
+
+(printf "What is epsilon?~n")
+(find-epsilon 1.0)
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: complex.scm,v 1.1 2021-04-01 14:26:16-07 - - $
+d7 1
+a7 1
+         (when (> sum 1.0) (find-epsilon (/ eps8lon 2.0)))))
+@

@@ -1,0 +1,74 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2020.08.20.20.39.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.08.20.20.38.22;	author wmackey;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.08.20.20.34.04;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.07.11.16.39.20;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $IdR
+for course in cse111 cse112
+do
+   cd /afs/cats.ucsc.edu/courses/$course-wm/
+   cid -is $0 Readme.all.$course.txt
+   mkreadme Readme.all.$course.txt
+   mkheader
+done
+@
+
+
+1.3
+log
+@-
+@
+text
+@@
+
+
+1.2
+log
+@-
+@
+text
+@@
+
+
+1.1
+log
+@-
+@
+text
+@d6 1
+a6 1
+   cid + $0 Readme.all.$course.txt
+@

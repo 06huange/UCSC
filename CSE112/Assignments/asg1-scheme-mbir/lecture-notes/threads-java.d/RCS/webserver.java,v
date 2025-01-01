@@ -1,0 +1,678 @@
+head	1.25;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.25
+date	2018.05.30.01.28.09;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2018.05.30.01.27.28;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2018.05.30.01.26.19;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2018.05.30.01.25.15;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2018.05.30.01.24.36;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2018.05.30.01.22.48;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2018.05.30.01.18.41;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2018.05.30.01.17.35;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2018.05.30.01.16.04;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2018.05.30.01.14.33;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2018.05.30.01.13.13;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2018.05.30.01.11.29;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2018.05.30.01.10.33;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2018.05.30.01.07.08;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2018.05.30.01.06.44;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2018.05.30.00.58.14;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2018.05.30.00.54.03;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2018.05.30.00.52.49;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2018.05.30.00.51.32;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2018.05.30.00.45.43;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2018.05.30.00.45.30;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2018.05.30.00.45.07;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2018.05.30.00.44.40;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2018.05.30.00.44.28;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2018.05.30.00.36.19;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.25
+log
+@-
+@
+text
+@// $Id: webserver.java,v 1.24 2018-05-29 18:27:28-07 - - $
+
+//
+// Web server.  Responds with README.html when queried.
+//
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import static java.lang.String.*;
+import static java.lang.System.*;
+
+class webserver {
+
+   static String progname() {
+      String jarpath = getProperty ("java.class.path");
+      int lastslash = jarpath.lastIndexOf ('/');
+      if (lastslash < 0) return jarpath;
+      return jarpath.substring (lastslash + 1);
+   }
+
+   static String timenow() {
+      return format ("%1$tY %1$tb %1$td %1$ta %1$tT.%1$tL",
+                     Calendar.getInstance());
+   }
+
+
+   static void sendline (PrintWriter writer, String line) {
+      out.printf ("SENT: %s%n", line);
+      writer.printf ("%s\n", line);
+   }
+
+   static void sendfile (Socket client, String filename)
+               throws IOException {
+      List<String> lines = new LinkedList<String>();
+      PrintWriter writer = new PrintWriter (client.getOutputStream());
+      lines.add ("<PRE>");
+      try {
+         InetAddress addr = InetAddress.getLocalHost();
+         lines.add ("From HostName: " + addr.getHostName());
+         lines.add ("From HostAddress: " + addr.getHostAddress());
+      }catch (UnknownHostException exn) {
+         lines.add ("UnknownHostException: " + exn.getMessage());
+      }
+      lines.add ("Page sent: " + timenow());
+      lines.add ("");
+      try {
+         Scanner file = new Scanner (new File (filename));
+         while (file.hasNextLine()) {
+            String line = file.nextLine();
+            lines.add (line);
+         }
+      }catch (IOException exn) {
+         out.printf ("%s%n", exn);
+         lines.add ("IOException: " + exn.getMessage());
+      }
+      int length = 0;
+      for (String line: lines) length += line.length() + 1;
+      sendline (writer, "HTTP/1.1 200 OK");
+      sendline (writer, "Content-Type: text/html");
+      sendline (writer, "Content-Length: " + length);
+      sendline (writer, "");
+      for (String line: lines) sendline (writer, line);
+      writer.flush();
+   }
+
+
+   static List<String> getrequest (Socket client) throws IOException {
+      List<String> lines = new LinkedList<String>();
+      Scanner input = new Scanner (client.getInputStream());
+      while (input.hasNextLine()) {
+         String line = input.nextLine();
+         out.printf ("RECD: %s%n", line);
+         lines.add (line);
+         if (line.length() == 0) break;
+      }
+      return lines;
+   }
+
+   static class worker implements Runnable {
+      static int worker_count = 0;
+      Socket client;
+      int id = ++worker_count;
+      worker (Socket client) {
+         this.client = client;
+      }
+      public void run() {
+         Thread.currentThread().setName ("Worker " + id);
+         out.printf ("%s: worker %d: starting%n", progname(), id);
+         String filename = null;
+         try {
+            List<String> request = getrequest (client);
+            filename = request.get(0).split("\\s+")[1];
+            sendfile (client, filename.substring(1));
+            client.close();
+            out.printf ("%s: worker %d: finished%n", progname(), id);
+         }catch (IOException exn) {
+            out.printf ("%s: %s: %s%n", progname(), filename, exn);
+         }
+      }
+   }
+
+
+   public static void main (String[] args) {
+      int port_number = Integer.parseInt (args[0]);
+      try {
+         ServerSocket socket = new ServerSocket (port_number);
+         out.printf ("%s: waiting for client%n", progname());
+         for (;;) {
+            Socket client = socket.accept();
+            out.printf ("%s: socket.accept OK%n", progname());
+            Thread worker = new Thread (new worker (client));
+            worker.start();
+         }
+      }catch (IOException exn) {
+         out.printf ("%s: %s%n", progname(), exn);
+      }catch (IllegalArgumentException exn) {
+         out.printf ("%s: %s%n", progname(), exn);
+      }
+   }
+
+}
+
+//TEST// pkill webserver
+//TEST// sleep 5
+//TEST// DUMP="lynx -dump localhost:6000"
+//TEST// ./webserver 6000 >webserver.out.1server &
+//TEST// sleep 5
+//TEST// $DUMP/README.txt >webserver.out.2txt.client
+//TEST// $DUMP/README.html >webserver.out.3html.client
+//TEST// sleep 5
+//TEST// pkill webserver
+//TEST// mkpspdf webserver.ps webserver.java* webserver.out.*
+
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.23 2018-05-29 18:26:19-07 - - $
+d126 2
+a127 2
+//TEST// DUMP="lynx -dump localhost:5000"
+//TEST// ./webserver 5000 >webserver.out.1server &
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.22 2018-05-29 18:25:15-07 - - $
+d127 1
+a127 1
+//TEST// ./webserver 5000 >webserver.out.server &
+d129 2
+a130 2
+//TEST// $DUMP/README.txt >webserver.out.txt.client
+//TEST// $DUMP/README.html >webserver.out.html.client
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.21 2018-05-29 18:24:36-07 - - $
+d126 3
+a128 2
+//TEST// DUMP="lynx -dump localhost:9876"
+//TEST// ./webserver 9876 >webserver.out.server &
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.20 2018-05-29 18:22:48-07 - - $
+d126 2
+a127 2
+//TEST// DUMP="lynx -dump localhost:9999"
+//TEST// ./webserver 9999 >webserver.out.server &
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.19 2018-05-29 18:18:41-07 - - $
+d124 1
+a124 2
+//TEST// DUMP="lynx -dump localhost:8888"
+//TEST// ./webserver 8888 >webserver.out.server &
+d126 2
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.18 2018-05-29 18:17:35-07 - - $
+d124 1
+d127 2
+a128 1
+//TEST// lynx -dump localhost:8888/README >webserver.out.client
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.17 2018-05-29 18:16:04-07 - - $
+d124 4
+a127 4
+//TEST// ./webserver 9999 >webserver.out.server &
+//TEST// sleep 10
+//TEST// lynx -dump localhost:9999/README >webserver.out.client
+//TEST// sleep 10
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.16 2018-05-29 18:14:33-07 - - $
+d124 1
+a124 1
+//TEST// ./webserver 9999 >webserver.server.log &
+d126 1
+a126 1
+//TEST// lynx -dump localhost:9999/README >webserver.client.out
+d129 2
+a130 2
+//TEST// mkpspdf webserver.ps webserver.java* \
+//TEST//         webserver.log webserver.lynx.out
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.15 2018-05-29 18:13:13-07 - - $
+d129 1
+a129 1
+//TEST// mkpspdf webserver.ps webserver.java \
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.14 2018-05-29 18:11:29-07 - - $
+d124 4
+a127 2
+//TEST// ./webserver 9999 >webserver.log &
+//TEST// lynx -dump localhost:9999/README >webserver.lynx.out
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.13 2018-05-29 18:10:33-07 - - $
+d103 1
+d124 5
+a128 1
+//TEST// mkpspdf webserver.ps webserver.java
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.12 2018-05-29 18:07:08-07 - - $
+d27 1
+d67 1
+a79 1
+
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.11 2018-05-29 18:06:44-07 - - $
+a46 1
+         out.printf ("filename = \"%s\"%n", filename);
+d121 2
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.9 2018-05-29 17:54:03-07 - - $
+d98 1
+a98 1
+            out.printf ("%s: "%s": %s%n", progname(), filename, exn);
+@
+
+
+1.10
+log
+@-
+@
+text
+@a92 1
+            for (String word: request) out.println (word);
+d98 1
+a98 1
+            quit ("%s: %s: %s%n", progname(), filename, exn);
+a102 15
+   static void quit (String format, Object... params) {
+      err.printf (format, params);
+      Set<Map.Entry<Thread, StackTraceElement[]>> entryset =
+                  Thread.getAllStackTraces().entrySet();
+      for (Map.Entry<Thread, StackTraceElement[]> entry: entryset) {
+         Thread key = entry.getKey();
+         StackTraceElement[] value = entry.getValue();
+         err.printf ("Thread %d: %s%n", key.getId(), key.getName());
+         for (StackTraceElement stack: value) {
+            err.printf ("   %s%n", stack.toString());
+         }
+      }
+      exit (1);
+   }
+
+d115 1
+a115 1
+         quit ("%s: %s%n", progname(), exn);
+d117 1
+a117 1
+         quit ("%s: %s%n", progname(), exn);
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.6 2018-05-29 17:45:43-07 - - $
+d47 1
+@
+
+
+1.8
+log
+@-
+@
+text
+@d92 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d89 1
+d92 1
+a92 1
+            String filename = request.get(0).split("\\s+")[1];
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.5 2018-05-29 17:45:30-07 - - $
+d33 1
+a33 1
+                  throws IOException {
+d96 1
+a96 1
+            quit ("%s: %s%n", progname(), exn);
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.4 2018-05-29 17:45:07-07 - - $
+d119 1
+a119 1
+         ServerSocket socket = new ServerSocket (portnumber);
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.3 2018-05-29 17:44:40-07 - - $
+d94 1
+a94 1
+            out.printf ("%s: worker %d: finished%n", ident(), id);
+d120 1
+a120 1
+         out.printf ("%s: waiting for client%n", ident());
+d123 1
+a123 1
+            out.printf ("%s: socket.accept OK%n", ident());
+d128 1
+a128 1
+         quit ("%s: %s%n", ident(), exn);
+d130 1
+a130 1
+         quit ("%s: %s%n", ident(), exn);
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.2 2018-05-29 17:44:28-07 - - $
+d96 1
+a96 1
+            quit ("%s: %s%n", ident(), exn);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.1 2018-05-29 17:36:19-07 - - $
+d88 1
+a88 1
+         out.printf ("%s: worker %d: starting%n", progname(, id);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: webserver.java,v 1.27 2014-05-22 19:37:09-07 - - $
+a13 2
+   static final String RCSID =
+         "$Id: webserver.java,v 1.27 2014-05-22 19:37:09-07 - - $";
+d15 1
+a15 6
+   static String ident() {
+      return String.format ("%s: port %d", opts.progname,
+                            opts.portnumber);
+   }
+
+   static String get_jarname() {
+a26 1
+
+a58 1
+      sendline (writer, "Server: " + ident());
+d88 1
+a88 1
+         out.printf ("%s: worker %d: starting%n", ident(), id);
+@

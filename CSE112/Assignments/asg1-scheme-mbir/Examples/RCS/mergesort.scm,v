@@ -1,0 +1,497 @@
+head	1.20;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.20
+date	2020.10.13.20.17.28;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2020.10.13.20.13.48;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2020.10.13.20.12.39;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.10.13.20.09.37;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.10.13.20.09.00;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2020.10.13.20.03.15;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2020.10.13.19.39.21;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.10.13.19.36.18;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.10.13.19.27.50;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.10.13.19.27.22;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.10.13.19.24.15;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.10.13.19.23.44;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.10.13.19.21.30;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.10.13.19.20.39;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.10.13.19.20.07;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.10.13.19.19.47;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.10.13.19.19.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.10.13.19.18.50;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.11.01.00.35.08;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.02.13.03.38.42;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.20
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: mergesort.scm,v 1.19 2020-10-13 13:13:48-07 - - $
+
+(define (every-other list)
+    (if (or (null? list) (null? (cdr list))) list
+        (cons (car list) (every-other (cddr list)))))
+
+(define (merge less? list1 list2)
+    (cond ((null? list1) list2)
+          ((null? list2) list1)
+          ((less? (car list1) (car list2))
+                  (cons (car list1) (merge less? (cdr list1) list2)))
+          (else   (cons (car list2) (merge less? list1 (cdr list2))))
+))
+
+(define (merge-sort less? list)
+    (if (or (null? list) (null? (cdr list))) list
+        (merge less? (merge-sort less? (every-other list))
+                     (merge-sort less? (every-other (cdr list))))
+))
+
+(define numbers '(3.1415 1.4142 4 22 8 2.7828 77 -33 5 11 -9876))
+(define strings '("hello" "world" "foo" "bar" "baz"
+                  "Moon" "Sun" "QUX" "1234" "!@@#$"))
+
+(printf "~s~n" numbers)
+(printf "~s~n" (merge-sort < numbers))
+(printf "~s~n" (merge-sort > numbers))
+
+(printf "~s~n" strings)
+(printf "~s~n" (merge-sort string<? strings))
+(printf "~s~n" (merge-sort string-ci<? strings))
+
+@
+
+
+1.19
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: mergesort.scm,v 1.18 2020-10-13 13:12:39-07 - - $
+d4 1
+a4 1
+(define (skip list)
+d6 1
+a6 1
+        (cons (car list) (skip (cddr list)))))
+d13 2
+a14 1
+          (else (cons (car list2) (merge less? list1 (cdr list2))))))
+d18 3
+a20 2
+        (merge less? (merge-sort less? (skip list))
+                     (merge-sort less? (skip (cdr list))))))
+@
+
+
+1.18
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: mergesort.scm,v 1.17 2020-10-13 13:09:37-07 - - $
+d24 1
+d27 2
+d31 1
+@
+
+
+1.17
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: mergesort.scm,v 1.16 2020-10-13 13:09:00-07 - - $
+d4 3
+a6 3
+(define (skip lis)
+    (if (or (null? lis) (null? (cdr lis))) lis
+        (cons (car lis) (skip (cddr lis)))))
+d8 6
+a13 6
+(define (merge less? lis1 lis2)
+    (cond ((null? lis1) lis2)
+          ((null? lis2) lis1)
+          ((less? (car lis1) (car lis2))
+                  (cons (car lis1) (merge less? (cdr lis1) lis2)))
+          (else (cons (car lis2) (merge less? lis1 (cdr lis2))))))
+d15 4
+a18 4
+(define (merge-sort less? lis)
+    (if (or (null? lis) (null? (cdr lis))) lis
+        (merge less? (merge-sort less? (skip lis))
+                     (merge-sort less? (skip (cdr lis))))))
+@
+
+
+1.16
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: mergesort.scm,v 1.15 2020-10-13 13:03:15-07 - - $
+d15 1
+a15 1
+(define (mergesort less? lis)
+d17 2
+a18 2
+        (merge less? (mergesort less? (skip lis))
+                     (mergesort less? (skip (cdr lis))))))
+d24 4
+a27 4
+(printf "~s~n" (mergesort < numbers))
+(printf "~s~n" (mergesort > numbers))
+(printf "~s~n" (mergesort string<? strings))
+(printf "~s~n" (mergesort string-ci<? strings))
+@
+
+
+1.15
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: mergesort.scm,v 1.14 2020-10-13 12:39:21-07 - - $
+d5 9
+a13 2
+        (if (or (null? lis) (null? (cdr lis))) lis
+            (cons (car lis) (skip (cddr lis)))))
+d16 3
+a18 11
+        (define (merge lis1 lis2)
+                (cond ((null? lis1) lis2)
+                      ((null? lis2) lis1)
+                      ((less? (car lis1) (car lis2))
+                              (cons (car lis1) (merge (cdr lis1) lis2)))
+                      (else (cons (car lis2) (merge lis1 (cdr lis2))))))
+        (define (msort lis)
+                (if (or (null? lis) (null? (cdr lis))) lis
+                    (merge (msort (skip lis))
+                           (msort (skip (cdr lis))))))
+        (msort lis))
+@
+
+
+1.14
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.12 2020-10-13 12:27:50-07 - - $~n")
+d4 3
+a6 3
+(define (fold-left fn unit lis)
+        (if (null? lis) unit
+            (fold-left fn (fn unit (car lis)) (cdr lis))))
+d8 1
+a8 10
+(define (fold-right fn unit lis)
+        (if (null? lis) unit
+            (fn (car lis) (fold-right fn unit (cdr lis)))))
+
+(define (filter ok? lis)
+        (define (test hd tl) (if (ok? hd) (cons hd tl) tl))
+        (fold-right test '() lis))
+
+(define (mergesort <? lis)
+        (define (flipflop tf) (lambda (_) (set! tf (not tf)) tf))
+d12 2
+a13 2
+                      ((<? (car lis1) (car lis2))
+                            (cons (car lis1) (merge (cdr lis1) lis2)))
+d17 2
+a18 2
+                    (merge (msort (filter (flipflop #t) lis))
+                           (msort (filter (flipflop #f) lis)))))
+@
+
+
+1.13
+log
+@-
+@
+text
+@d2 13
+a14 1
+;; $Id: mergesort.scm,v 1.12 2020-10-13 12:27:50-07 - - $
+d26 2
+a27 2
+                    (merge (msort (grep (flipflop #t) lis))
+                           (msort (grep (flipflop #f) lis)))))
+@
+
+
+1.12
+log
+@-
+@
+text
+@d2 1
+a2 13
+(printf "$Id: mergesort.scm,v 1.11 2020-10-13 12:27:22-07 - - $~n")
+
+(define (foldl fn unit lis)
+        (if (null? lis) unit
+            (foldl fn (fn unit (car lis)) (cdr lis))))
+
+(define (foldr fn unit lis)
+        (if (null? lis) unit
+            (fn (car lis) (foldr fn unit (cdr lis)))))
+
+(define (grep ok? lis)
+        (define (test hd tl) (if (ok? hd) (cons hd tl) tl))
+        (foldr test '() lis))
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.10 2020-10-13 12:24:15-07 - - $~n")
+d30 1
+a30 1
+(define numbers '(3.1415 1.4142 4 22 8 2.7828 77 -3 5 11))
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.9 2020-10-13 12:23:44-07 - - $~n")
+d30 1
+a30 1
+(define numbers '(3 1 4 22 8 77 -3 5 11))
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.8 2020-10-13 12:21:30-07 - - $~n")
+d36 2
+a37 2
+(printf "~s~n" (mergesort string<? strings)
+(printf "~s~n" (mergesort string-ci<? strings)
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.7 2020-10-13 12:20:39-07 - - $~n")
+d30 8
+a37 5
+(printf "~s~n" (mergesort < '(3 1 4 22 8 77 -3 5 11)))
+(printf "~s~n" (mergesort > '(3 1 4 22 8 77 -3 5 11)))
+(printf "~s~n" (mergesort string<?
+                '("hello" "world" "foo" "bar" "baz"
+                  "Moon" "Sun" "QUX" "1234" "!@@#$")))
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.6 2020-10-13 12:20:07-07 - - $~n")
+d30 3
+a32 3
+(printf "~a~n" (mergesort < '(3 1 4 22 8 77 -3 5 11)))
+(printf "~a~n" (mergesort > '(3 1 4 22 8 77 -3 5 11)))
+(printf "~a~n" (mergesort string<?
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.5 2020-10-13 12:19:47-07 - - $~n")
+d34 1
+a34 1
+                  "Moon" "Sun" "QUX")))
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "$Id: mergesort.scm,v 1.4 2020-10-13 12:19:15-07 - - $~n")
+d34 1
+a34 1
+                  "Moon" "Sun" "qux")))
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+(printf "~a~n"  $Id: mergesort.scm,v 1.3 2020-10-13 12:18:50-07 - - $)
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: mergesort.scm,v 1.2 2014-10-31 17:35:08-07 - - $
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 2
+a2 2
+#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: mergesort.scm,v 1.1 2009-02-12 19:38:42-08 - - $
+d30 5
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 2
+a2 2
+#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/mzscheme/bin/mzscheme -qr
+;; $Id: mergesort.scm,v 361.1 2006-02-17 17:53:42-08 - - $
+@

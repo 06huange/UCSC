@@ -1,0 +1,142 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.5
+date	2020.07.22.04.00.30;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.07.20.23.20.56;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.07.17.03.56.15;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.07.17.03.09.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.07.17.03.04.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: diff_colors.perl,v 1.4 2020-07-20 16:20:56-07 - - $
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+
+my %hash;
+my @@files = qw (mkheader txt2html);
+
+for my $file (@@files) {
+   open FILE, "<$file" or die "$0: $file: $!\n";
+   while (defined (my $line = <FILE>)) {
+      next unless $line =~ m/^\s*(\w\w_\w*?)\s*=>\s*(.*?)\s*$/i;
+      my ($color, $value) = ($1, $2);
+      $hash{$color}{$file} = $value;
+   }
+   close FILE;
+}
+
+die "$0: wrong number of files]\n" unless @@files == 2;
+for my $color (sort keys %hash) {
+   my @@values;
+   push @@values, $hash{$color}{$_} for keys $hash{$color};
+   next unless defined $values[0] && defined $values[1];
+   if ($values[0] eq $values[1]) {
+      $hash{$color}{'**BOTH**'} = $hash{$color}{$files[0]};
+      delete $hash{$color}{$_} for @@files;
+   }else {
+      print "ERROR: $color values differ: @@values\n";
+   }
+}
+
+for my $color (sort keys %hash) {
+   for my $file (sort keys $hash{$color}) {
+      printf "%-16s %-9s %s\n", $color, $file, $hash{$color}{$file};
+   }
+}
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: diff_colors.perl,v 1.3 2020-07-16 20:56:15-07 - - $
+d14 1
+a14 1
+      next unless $line =~ m/^\s*(.g_.*?)\s*=>\s*(.*?)\s*$/i;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: diff_colors.perl,v 1.2 2020-07-16 20:09:39-07 - - $
+d14 1
+a14 1
+      next unless $line =~ m/^my\s+\$(.g_.*?_color)\s*=\s*(.*?)\s*$/;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: diff_colors.perl,v 1.1 2020-07-16 20:04:36-07 - - $
+d4 1
+d9 1
+d11 2
+a12 2
+for $file (qw (mkheader txt2html) {
+   open FILE "<$file" or die "$0: $file: $!\n";
+d16 1
+a16 1
+      print "$file: $color: $value\n";
+d20 20
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 16
+a17 1
+# $Id$
+@

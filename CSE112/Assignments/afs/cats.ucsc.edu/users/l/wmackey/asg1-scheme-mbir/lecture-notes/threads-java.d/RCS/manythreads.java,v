@@ -1,0 +1,194 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.6
+date	2018.05.17.23.21.50;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2018.05.17.23.21.18;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2018.05.17.23.20.39;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2018.05.17.23.20.06;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2018.05.17.23.19.47;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2018.05.17.23.15.32;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@-
+@
+text
+@// $Id: manythreads.java,v 1.5 2018-05-17 16:21:18-07 - - $
+
+// Create many threads which loop for a while.
+
+import static java.lang.System.*;
+
+class manythreads {
+   static final long CYCLES = 1L<<20;
+
+   static void print (String status, long result) {
+      Thread self = Thread.currentThread();
+      out.printf ("(%2d)%-8s: %s, result = %d%n",
+                  self.getId(), self.getName(), status, result);
+   }
+
+   static class printmsg implements Runnable {
+      String threadname;
+      long loops;
+      long result = 0;
+      printmsg (String threadname_, long loops_) {
+         threadname = threadname_;
+         loops = loops_;
+      }
+      public void run() {
+         Thread self = Thread.currentThread();
+         self.setName (threadname);
+         print ("starting", result);
+         for (long count = 0; count < loops; ++count) {
+            ++result;
+         }
+         print ("finished", result);
+      }
+   }
+
+   static String[] names = {"Hello", "World", "Foo", "Bar", "Baz",
+                            "Penguin", "Dæmon", "Racoon"};
+
+   public static void main (String[] args) {
+      Thread self = Thread.currentThread();
+      print ("starting", 0);
+      for (int index = 0; index < names.length; ++index) {
+         Thread thread = new Thread (new printmsg (names[index],
+                         index * 1L<<20));
+         thread.start();
+      }
+      print ("finished", 0);
+   }
+}
+
+//TEST// ./manythreads >manythreads.out
+//TEST// mkpspdf manythreads.ps manythreads.java* manythreads.out
+
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: manythreads.java,v 1.4 2018-05-17 16:20:39-07 - - $
+d12 2
+a13 2
+      out.printf ("%-8s(%d): %s, result = %d%n",
+                  self.getName(), self.getId(), status, result);
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: manythreads.java,v 1.3 2018-05-17 16:20:06-07 - - $
+d12 1
+a12 1
+      out.printf ("%s(%d): %s, result = %d%n",
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: manythreads.java,v 1.2 2018-05-17 16:19:47-07 - - $
+d13 1
+a13 1
+                  self.getName(), self.getId(), result);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: manythreads.java,v 1.1 2018-05-17 16:15:32-07 - - $
+d27 1
+a27 1
+         print ("starting");
+d31 1
+a31 1
+         print ("finished");
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: eightthreads.java,v 1.1 2018-05-17 16:10:04-07 - - $
+d3 1
+a3 1
+// Create many threads which loop continuously.
+d7 1
+a7 1
+class eightthreads {
+d10 6
+d27 1
+a27 1
+         out.printf ("%s: starting%n", threadname);
+d31 1
+a31 1
+         out.printf ("%s: finished: %d%n", threadname, result);
+d40 1
+a40 1
+      out.printf ("%s: starting%n", self.getName());
+d46 1
+a46 1
+      out.printf ("%s: finished%n", self.getName());
+d50 2
+a51 2
+//TEST// ./eightthreads >eightthreads.out
+//TEST// mkpspdf eightthreads.ps eightthreads.java* eightthreads.out
+@

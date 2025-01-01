@@ -1,0 +1,63 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2021.04.27.18.53.52;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: abs-int32.cpp,v 1.5 2021-04-27 11:53:12-07 - - $
+
+#include <bitset>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+int32_t abs (int32_t n) {
+   int32_t mask = n >> 31;
+   return (n ^ mask) - mask;
+}
+
+void print (const char* label, int32_t x) {
+   cout << setw(10) << label << " = "
+        << bitset<8>(x) << " = " << x << endl;
+}
+#define PRINT(X) print (#X, X);
+
+void instrumented_abs (int32_t n) {
+   cout << endl << __PRETTY_FUNCTION__ << endl;
+   PRINT (n);
+   int32_t mask = n >> 7;
+   PRINT (mask);
+   PRINT (n ^ mask);
+   PRINT ((n ^ mask) - mask);
+}
+
+int main() {
+   cout << "abs(+39) = " << abs(+39) << endl;
+   cout << "abs(-39) = " << abs(-39) << endl;
+}
+
+//  
+//  Dissection:
+//  
+//  n      = 00100111 = 39      n       = 11011001 = -39
+//  mask   = 00000000 =  0      mask    = 11111111 =  -1
+//  n^mask = 00100111 = 39      n^mask  = 00100110 =  38
+//  *-mask = 00100111 = 39      *-mask  = 00100111 =  39
+//  
+@

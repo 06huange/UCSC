@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2020.09.14.18.59.34;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk-non-usr-headers,v 1.1 2020-08-07 11:43:50-07 - - $
+
+header_dirs=$(ls -la \
+            | grep '^d' \
+            | sed 's/.* //' \
+            | grep -v '^\.' \
+            | grep -v '^usr$' \
+            | grep -v '^RCS$')
+
+for dir in $header_dirs
+do
+   mkrecheaders $dir
+done
+(cd usr; mkheader)
+mkheader
+@

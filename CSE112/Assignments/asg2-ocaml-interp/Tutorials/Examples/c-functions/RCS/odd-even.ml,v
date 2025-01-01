@@ -1,0 +1,46 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.01.26.08.12.08;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id: odd-even.ml,v 1.2 2020-10-26 15:49:59-07 - - $ *)
+
+(*
+* Example of mutually recursive functions
+*)
+
+let rec oddlen list = match list with
+    | [] -> false
+    | _::tail -> evenlen tail
+
+and evenlen list = match list with
+    | [] -> true
+    | _::tail -> oddlen tail
+;;
+
+(*
+* Similar example but not mutually recursive.
+*)
+
+let rec oddlen' list = match list with
+    | [] -> false
+    | [_] -> true
+    | _::_::tail -> oddlen' tail;;
+@

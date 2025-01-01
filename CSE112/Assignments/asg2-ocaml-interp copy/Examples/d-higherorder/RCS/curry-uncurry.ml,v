@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.04.28.20.38.50;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id$ *)
+
+let uncurry f (x, y) = f x y;;
+
+let curry f x y = f (x, y);;
+
+
+@

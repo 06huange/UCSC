@@ -1,0 +1,55 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.2
+date	2021.04.29.18.47.37;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.28.23.18.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@(* $Id: p2-apply.ml,v 1.1 2021-04-28 16:18:36-07 - - $ *)
+
+let rec apply_n f n x =
+    if n < 0 then failwith "apply_n"
+    else if n = 0 then x
+    else apply_n f (n - 1) (f x);;
+
+apply_n (fun x -> x + 1) 4 0;;
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+(* $Id$ *)
+d3 2
+a4 2
+let apply_n f n x =
+    if n < 0 then raise (Invalid_arg "apply_n")
+d8 1
+a8 1
+apply_n 5 (fun x -> x + 1) 4 0;;
+@

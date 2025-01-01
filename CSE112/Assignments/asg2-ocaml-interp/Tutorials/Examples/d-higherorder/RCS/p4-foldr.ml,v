@@ -1,0 +1,122 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.4
+date	2021.04.29.18.51.55;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.29.18.36.43;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.29.18.29.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.28.23.32.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@(* $Id: p4-foldr.ml,v 1.3 2021-04-29 11:36:43-07 - - $ *)
+
+
+let rec foldr fn unit list = match list with
+    | [] -> unit
+    | car::cdr -> fn car (foldr fn unit cdr);;
+
+let rec map_rec f list = match list with
+    | [] -> []
+    | x::xs -> f x :: map_rec f xs;;
+
+let map_fold fn = foldr (fun h t -> fn h :: t) [];;
+
+let rec filter_rec pred list = match list with
+    | [] -> []
+    | x::xs when pred x -> x :: filter_rec pred xs
+    | _::xs -> filter_rec pred xs;;
+
+let filter_fold pred =
+    foldr (fun h t -> if pred h then h::t else t) [];;
+
+let rec append_rec lis1 lis2 = match lis1 with
+    | [] -> lis2
+    | x::xs -> x :: append_rec xs lis2;;
+
+let append_fold lis1 lis2 =
+    foldr (fun a d -> a::d) lis1 lis2;;
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+(* $Id: p4-foldr.ml,v 1.2 2021-04-29 11:29:19-07 - - $ *)
+d10 1
+a10 1
+    | x::xs -> f x :: map1 f xs;;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+(* $Id: p4-foldr.ml,v 1.1 2021-04-28 16:32:46-07 - - $ *)
+d19 1
+a19 1
+let filter-fold pred =
+d22 6
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+(* $Id$ *)
+d8 1
+a8 1
+let rec map1 f list = match list with
+d12 1
+a12 1
+let map2 fn = foldr (fun h t -> fn h :: t) [];;
+d14 1
+a14 1
+let rec filter1 pred list = match list with
+d16 2
+a17 2
+    | x::xs when pred x -> x :: filter1 pred xs
+    | _::xs -> filter1 pred xs;;
+d19 2
+a20 1
+let filter2 pred = foldr (fun h t -> if pred h then h::t else t) [];;
+@

@@ -1,0 +1,52 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.2
+date	2021.04.07.08.16.29;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.07.08.15.52;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+(* $Id: epsilon.ml,v 1.1 2021-04-07 01:15:52-07 - - $ *)
+
+open Printf
+
+let find_epsilon epsilon =
+    let sum = 1.0 +. epsilon
+    in (printf "1.0 +. %.17g = %.17g\n" epsilon (1.0 +. epsilon)
+        if sum > 1.0 then find_epsilon (epsilon /. 2.0)
+
+printf "What is epsilon?\n?";
+find_epsilon 1.0
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: complex.scm,v 1.1 2021-04-01 14:26:16-07 - - $
+@

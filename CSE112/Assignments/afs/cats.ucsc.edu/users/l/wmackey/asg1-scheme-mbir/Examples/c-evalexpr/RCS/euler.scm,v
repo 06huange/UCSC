@@ -1,0 +1,90 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2021.04.07.08.09.29;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.07.08.02.48;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.01.05.29.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: euler.scm,v 1.1 2021-03-31 22:29:46-07 - - $
+
+(define i (sqrt -1))
+(define pi (acos -1))
+
+(define euler-exp '(lambda (x) (exp (* i x))))
+(define euler-trig '(lambda (x) (+ (cos x) (* i (sin x)))))
+
+(define (show expr)
+    (printf "~s = ~s~n"  expr (eval expr)))
+
+(show 'i)
+(show 'pi)
+
+(show 'euler-exp)
+(show 'euler-trig)
+
+(show '((eval euler-exp) pi))
+(show '((eval euler-trig) pi))
+(show '(- ((eval euler-exp) pi) ((eval euler-trig) pi)))
+
+(show '((eval euler-exp) 0))
+(show '((eval euler-trig) 0))
+(show '(- ((eval euler-exp) 0) ((eval euler-trig) 0)))
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@a14 1
+(show pi)
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: euler.scm,v 1.6 2020-09-06 11:23:57-07 - - $
+d15 1
+a26 8
+
+(define (digits fraction)
+    (let ((sum (+ 1 fraction)))
+         (show `(+ 1 ,fraction))
+         (when (> sum 1) (digits (/ fraction 10)))))
+
+(printf "~nWhat is epsilon?~n")
+(digits 0.0000001)
+@

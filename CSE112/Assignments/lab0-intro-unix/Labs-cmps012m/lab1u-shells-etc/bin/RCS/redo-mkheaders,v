@@ -1,0 +1,481 @@
+head	1.19;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.19
+date	2020.12.21.21.12.48;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2020.12.21.21.12.21;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.11.25.05.10.54;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.10.15.04.19.04;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2020.09.14.19.17.41;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2020.09.14.19.16.57;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.08.16.06.56.03;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.07.24.05.10.48;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.07.24.05.10.22;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.07.24.05.08.35;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.07.23.22.09.31;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.07.23.22.08.56;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.07.23.22.04.07;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.07.23.22.02.11;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.07.23.22.01.38;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.07.21.22.28.50;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.07.21.07.23.56;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.07.21.07.22.36;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.07.21.05.37.57;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.19
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: redo-mkheaders,v 1.18 2020-12-21 13:12:21-08 - - $
+
+while getopts r opt
+do
+   case $opt in
+      r) recheaders=1;;
+      *) echo $(basename $0): $opt: invalid option; exit 1;;
+   esac
+done
+
+rootdirs="/afs/cats.ucsc.edu/courses/cse*-wm"
+nextdirs="/afs/cats.ucsc.edu/courses/cse*-wm/Next-quarter-*"
+for rootdir in $rootdirs $nextdirs
+do
+   if [ -d $rootdir ]
+   then
+      cd $rootdir
+      for readme in Readme.all.*.txt
+      do
+         if [ -e $readme ]
+         then
+            cid -is $readme
+            mkreadme $readme
+            mkheader
+         fi
+         [ -n "$recheaders" ] && mkrecheaders 
+      done
+   fi
+done
+
+@
+
+
+1.18
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.17 2020-11-24 21:10:54-08 - - $
+d17 1
+a17 1
+   do
+d29 1
+a29 1
+   done
+@
+
+
+1.17
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.16 2020-10-14 21:19:04-07 - - $
+d16 1
+a16 2
+   cd $rootdir
+   for readme in Readme.all.*.txt
+d18 11
+a28 7
+      if [ -e $readme ]
+      then
+         cid -is $readme
+         mkreadme $readme
+         mkheader
+      fi
+      [ -n "$recheaders" ] && mkrecheaders 
+@
+
+
+1.16
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.15 2020-09-14 12:17:41-07 - - $
+d12 3
+a14 1
+for rootdir in /afs/cats.ucsc.edu/courses/cse*-wm
+@
+
+
+1.15
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.14 2020-09-14 12:16:57-07 - - $
+d8 1
+a8 1
+      *) $0: $opt: invalid option; exit 1;;
+@
+
+
+1.14
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.13 2020-08-15 23:56:03-07 - - $
+d12 2
+a13 1
+for rootdir in /afs/cats.ucsc.edu/courses/cse*-wm; do
+d15 4
+a18 2
+   for readme in Readme.all.*.txt; do
+      if [ -e $readme ]; then
+@
+
+
+1.13
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.12 2020-07-23 22:10:48-07 - - $
+d8 1
+a8 1
+      *) $0: invalid option $opt: ignored
+d12 11
+a22 14
+cd /afs/cats.ucsc.edu/courses/cse110a-wm/
+[ -n "$recheaders" ] && mkrecheaders 
+
+cd /afs/cats.ucsc.edu/courses/cse111-wm/
+cid -is $0 Readme.all.cse111.txt
+mkreadme Readme.all.cse111.txt
+mkheader
+[ -n "$recheaders" ] && mkrecheaders
+
+cd /afs/cats.ucsc.edu/courses/cse112-wm/
+cid -is $0 Readme.all.cse112.txt
+mkreadme Readme.all.cse112.txt
+mkheader
+[ -n "$recheaders" ] && mk-non-usr-headers 
+@
+
+
+1.12
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.11 2020-07-23 22:10:22-07 - - $
+d16 1
+a16 1
+cid + $0 Readme.all.cse111.txt
+d22 1
+a22 1
+cid + $0 Readme.all.cse112.txt
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.10 2020-07-23 22:08:35-07 - - $
+a10 3
+
+echo /$recheaders/
+[ -n "$recheaders" ] && echo yes
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.9 2020-07-23 15:09:31-07 - - $
+d11 3
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.8 2020-07-23 15:08:56-07 - - $
+d13 1
+a13 1
+[ $recheaders ] && mkrecheaders 
+d19 1
+a19 1
+[ $recheaders ] && mkrecheaders
+d25 1
+a25 1
+[ $necheaders ] && mk-non-usr-headers 
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.7 2020-07-23 15:04:07-07 - - $
+d4 1
+a4 1
+while getopts v opt
+d7 1
+a7 1
+      v) recheaders=1;;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.6 2020-07-23 15:02:11-07 - - $
+d4 1
+a4 1
+while getopts n opt
+d7 1
+a7 1
+      n) no_recheadeers=1;;
+d13 1
+a13 1
+[ $no_recheaders ] || mkrecheaders 
+d19 1
+a19 1
+[ $no_recheaders ] || mkrecheaders
+d25 1
+a25 1
+[ $no_recheaders ] || mk-non-usr-headers 
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.5 2020-07-23 15:01:38-07 - - $
+d13 1
+a13 1
+[ -z "$no_recheaders" ] || mkrecheaders 
+d19 1
+a19 1
+[ -z "$no_recheaders" ] || mkrecheaders
+d25 1
+a25 1
+[ -z "$no_recheaders" ] || mk-non-usr-headers 
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.4 2020-07-21 15:28:50-07 - - $
+d13 1
+a13 1
+[ -n "$no_recheaders" ] || mkrecheaders 
+d19 1
+a19 1
+[ -n "$no_recheaders" ] || mkrecheaders
+d25 1
+a25 1
+[ -n "$no_recheaders" ] || mk-non-usr-headers 
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 9
+a10 1
+# $Id: redo-mkheaders,v 1.3 2020-07-21 00:23:56-07 - - $
+d13 1
+a13 1
+mkrecheaders 
+d19 1
+a19 1
+mkrecheaders
+d25 1
+a25 1
+mk-non-usr-headers 
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.2 2020-07-21 00:22:36-07 - - $
+d4 14
+a17 3
+cd /afs/cats.ucsc.edu/courses/cse110a-wm/; mkrecheaders 
+cd /afs/cats.ucsc.edu/courses/cse111-wm/; mkrecheaders
+cd /afs/cats.ucsc.edu/courses/cse112-wm/; mk-non-usr-headers 
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: redo-mkheaders,v 1.1 2020-07-20 22:37:57-07 - - $
+d4 3
+a6 8
+cd /afs/cats.ucsc.edu/courses/cmps112-wm/
+mk-non-usr-headers
+
+cd /afs/cats.ucsc.edu/courses/cse110a-wm/
+mkrecheaders
+
+cd /afs/cats.ucsc.edu/courses/cse111-wm/
+mkrecheaders
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d4 8
+a11 3
+cd /afs/cats.ucsc.edu/courses/cmps112-wm/; mk-non-usr-headers 
+cd /afs/cats.ucsc.edu/courses/cse111-wm/; mkrecheaders
+cd /afs/cats.ucsc.edu/courses/cse110a-wm/; mkrecheaders
+@

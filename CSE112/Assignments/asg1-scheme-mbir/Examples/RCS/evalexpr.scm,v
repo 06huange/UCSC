@@ -1,0 +1,374 @@
+head	1.13;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.13
+date	2020.10.18.18.11.30;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.10.14.03.14.01;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.10.10.07.46.05;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.10.10.07.41.52;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.07.29.00.12.23;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.22.22.58.31;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.13.22.43.13;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.13.22.39.58;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.13.22.39.25;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.13.22.15.56;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2019.01.16.21.54.30;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.01.15.20.37.02;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.01.15.20.36.15;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: evalexpr.scm,v 1.12 2020-10-13 20:14:01-07 - - $
+
+;;
+;; NAME
+;;    eval-apply examples of evaluating expressions.
+;;
+
+(define *functions* (make-hash))
+(for-each
+    (lambda (symfun) (hash-set! *functions* (car symfun) (cadr symfun)))
+    `(
+        (+    ,+)
+        (-    ,-)
+        (*    ,*)
+        (/    ,/)
+        (^    ,expt)
+        (sqrt ,sqrt)
+        (sqr  ,sqr)
+
+    ))
+
+(define *variables* (make-hash))
+(for-each
+    (lambda (varval)
+        (hash-set! *variables* (car varval) (cadr varval)))
+    `(
+        (pi    ,(acos -1))
+        (e     ,(exp 1))
+        (i     ,(sqrt -1))
+        (one   1.0)
+        (zero  0.0)
+    ))
+
+(define NAN (/ 0.0 0.0))
+
+(define (eval-expr expr)
+    (cond ((number? expr) (+ expr 0.0))
+          ((symbol? expr) (hash-ref *variables* expr 0.0))
+          ((pair? expr) 
+              (let ((func (hash-ref *functions* (car expr) #f))
+                    (opnds (map eval-expr (cdr expr))))
+                   (if (not func) NAN
+                       (apply func opnds))))
+          (else NAN)))
+
+(define (test expr)
+    (printf "expr: ~s~n" expr)
+    (printf "value: ~s~n" (eval-expr expr))
+    (newline))
+
+
+(test 3)
+(test 1/2)
+(test '(+ (* 3 4) (* 5 6)))
+(test '(+ (^ e (* i pi)) 1))
+(test '(/ zero zero))
+(test '(/ one zero))
+(test '(sqrt (+ (sqr 3) (sqr 4))))
+(test '(/ (+ 1) (+ 0)))
+
+(define (dump-hash hash_name)
+    (printf "~s:~n" hash_name)
+    (hash-for-each (eval hash_name)
+        (lambda (key value) (printf "    ~s: ~s~n" key value)) #t)
+    (newline))
+
+(dump-hash '*functions*)
+(dump-hash '*variables*)
+
+;;TEST: evalexpr.scm
+
+@
+
+
+1.12
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.11 2020-10-10 00:46:05-07 - - $
+d60 1
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.10 2020-10-10 00:41:52-07 - - $
+d45 1
+a45 1
+           (else NAN)))
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.9 2020-07-28 17:12:23-07 - - $
+d19 1
+d59 1
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.8 2020-01-22 14:58:31-08 - - $
+d30 2
+a31 2
+        (one   1)
+        (zero  0)
+d38 1
+a38 1
+          ((symbol? expr) (hash-ref *variables* expr NAN))
+d43 1
+a43 1
+                       (apply func (map eval-expr opnds)))))
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.7 2020-01-13 14:43:13-08 - - $
+d40 1
+a40 1
+              (let ((func (hash-ref *functions* (car expr) NAN))
+d42 1
+a42 1
+                   (if (null? func) NAN
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.6 2020-01-13 14:39:58-08 - - $
+d62 1
+a62 1
+        (lambda (key value) (printf "    ~s: ~s~n" key value) #t))
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.5 2020-01-13 14:39:25-08 - - $
+d24 2
+a25 1
+    (lambda (varval) (hash-set! *variables* (car varval) (cadr varval)))
+d51 1
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.4 2020-01-13 14:15:56-08 - - $
+d65 3
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: eval-apply.scm,v 1.1 2020-01-13 14:15:13-08 - - $
+d26 3
+a28 3
+        (pi    (acos -1))
+        (e     (exp 1))
+        (i     (sqrt -1))
+d37 1
+a37 1
+          ((symbol? expr) (hash-get *variables* expr))
+d39 1
+a39 1
+              (let ((func (hash-get *function* (car expr) '()))
+d42 2
+a43 2
+                       (apply func (map eval-expr opnds)))
+           (else NAN)))))
+d47 1
+a47 1
+    (printf (value: ~s~n" (eval-expr expr)))
+d50 2
+d54 2
+d57 8
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 2
+a2 2
+#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: evalexpr.scm,v 1.2 2019-01-15 12:37:02-08 - - $
+d4 4
+a7 1
+;; Example showing how to evaluate an expression.
+d9 1
+a9 1
+(define fnhash (make-hash))
+d11 8
+a18 11
+    (lambda (item) (hash-set! fnhash (car item) (cadr item)))
+    `((+ ,+)
+      (- ,-)
+      (* ,*)
+      (/ ,/))
+
+(define (evalexpr expr)
+    (cond ((number? expr) (+ 0.0 expr))
+          (else (let ((fn (hash-ref fnhash (car expr)))
+                      (args (map evalexpr (cdr expr))))
+                     (apply fn args)))))
+d20 1
+a20 1
+(define example '(+ (* 2 3) (* 4 5)))
+d22 30
+a51 2
+(printf "expr = ~s~n" example)
+(printf "value = ~s~n" (evalexpr example))
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.1 2019-01-15 12:36:15-08 - - $
+d10 3
+a12 1
+      (* ,*)))
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id$
+d12 1
+a12 1
+(lambda (evalexpr expr)
+d15 1
+a15 1
+                     ((args (map evalexpr (cdr expr)))))
+@

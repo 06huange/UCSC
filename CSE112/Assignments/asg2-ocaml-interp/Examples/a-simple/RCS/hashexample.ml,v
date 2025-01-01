@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.01.26.08.11.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id: hashexample.ml,v 1.1 2020-01-27 15:14:13-08 - - $ *)
+
+open Printf;;
+
+type variable_table_t = (string, float) Hashtbl.t;;
+
+let variable_table : variable_table_t = Hashtbl.create 16;;
+let _ = List.iter (fun (label, value) ->
+                  Hashtbl.add variable_table label value)
+                 ["e"  , exp 1.0;
+                  "eof", 0.0;
+                  "pi" , acos ~-.1.0;
+                  "nan", nan];;
+
+let printvalue var =
+    try let value = Hashtbl.find variable_table var
+        in printf "%s = %.15g\n%!" var value
+    with Not_found -> printf "%s: not found\n%!" var;;
+
+List.iter printvalue ["e"; "none"; "pi"; "foo"];;
+
+@

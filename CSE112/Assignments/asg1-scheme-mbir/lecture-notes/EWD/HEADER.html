@@ -1,0 +1,106 @@
+<HEAD>
+<TITLE>~cse112-wm/Lecture-notes/EWD</TITLE>
+<SCRIPT>
+function clock() {
+   var date = new Date();
+   var time = date.toLocaleTimeString().replace (/:\d\d\s/, " ");
+   document.getElementById("clock").innerHTML = time;
+   setTimeout (clock, 10 * 1000);
+}
+setTimeout (clock, 1);
+</SCRIPT>
+<STYLE>
+BODY {
+   font-size: 1em;
+   font-family: monospace;
+   color: #40FF40 !important;
+   background-color: #000000 !important;
+}
+DIV.CLOCK {
+   font-size: 1.44em;
+   margin-right: 1ch;
+   text-align: right;
+   font-weight: bold;
+   padding-top: 0.5ex;
+}
+DIV.PWD_URL {
+   font-size: 1em;
+   margin-left: 0;
+   font-weight: bold;
+}
+A:link {color: #FFFF00}
+A:visited {color: #00FFFF}
+A:hover {color: #FF0000}
+</STYLE>
+<SCRIPT>
+function date_time() {
+   var date = new Date();
+   var day = date.toDateString().replace (/\s+\d{4}$/, ",$&")
+                                .replace (/\s+0/, " ");; 
+   var time = date.toLocaleTimeString();
+   var display = (day + " @ " + time).replace (/\s+/, " ");;
+   document.getElementById("date_time").innerHTML = display;
+   setTimeout (date_time, 0.25 * 1000);
+}
+setTimeout (date_time, 1);
+</SCRIPT>
+<STYLE>
+DIV.TITLE {
+   font-size: 2.72581798858251em;
+   font-family: serif;
+   margin-left: 0;
+   font-weight: bold;
+}
+DIV.SEPARATOR {
+   font-size: 1em;
+   height: 2.985984ex;
+   width: 78.4ch;
+   background-color: #40FF40;
+}
+DIV.MONTH {
+   height: 0.2ex;
+}
+TABLE {
+   font-size: 1em;
+   table-layout: fixed;
+   border-style: solid;
+   border-width: 0.2ch;
+   border-color: #40FF40;
+   border-spacing: 0;
+}
+TD {
+   font-size: 1em;
+   border-style: solid;
+   border-width: 0.2ch;
+   border-color: #40FF40;
+   padding-top: 0.2ex;
+   padding-bottom: 0.2ex;
+   padding-left: 0.4ch;
+   padding-right: 0.4ch;
+   vertical-align: top;
+   width: 10ch;
+}
+TD.EXAM {
+   border-color: #FF0000;
+   background-color: #5F0000;
+}
+TD.DUE {
+   border-color: #FFFF00;
+   background-color: #5F5F00;
+}
+TD.DATA {
+   border-color: #00FFFF;
+   background-color: #005F5F;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<DIV class="PWD_URL">
+<BR>PWD: /afs/cats.ucsc.edu/courses/cse112-wm/Lecture-notes/EWD
+<BR>URL: <A HREF=https://www2.ucsc.edu/courses/cse112-wm/:/Lecture-notes/EWD/>https://www2.ucsc.edu/courses/cse112-wm/:/Lecture-notes/EWD/</A>
+</DIV>
+<PRE>
+HEADER: <A HREF=https:HEADER.html>https:HEADER.html</A>
+README: <A HREF=https:README.html>https:README.html</A>,v 1.1 2021-01-22 11:16:34-08
+</PRE>
+</BODY>

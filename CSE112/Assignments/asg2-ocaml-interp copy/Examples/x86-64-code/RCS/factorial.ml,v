@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.04.01.07.52.49;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id: factorial.ml,v 1.1 2021-03-31 23:11:24-07 - - $ *)
+let fac n =
+    let rec fac' n' r' =
+        if n < 1 then r'
+                 else fac' (n' - 1) (n' * r')
+    in fac' n 1;;
+@

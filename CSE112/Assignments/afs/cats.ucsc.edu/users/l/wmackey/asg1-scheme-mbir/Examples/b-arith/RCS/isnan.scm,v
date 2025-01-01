@@ -1,0 +1,59 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.04.11.21.31.58;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.11.21.28.32;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: isnan.scm,v 1.1 2021-04-11 14:28:32-07 - - $
+
+(define (nan? x)
+    (and (number? x)
+         (not (= x x))))
+
+(define (test x)
+    (printf "(nan? ~s) = ~s~n" x (nan? x)))
+
+(define nan (/ 0.0 0.0))
+
+(test nan)
+(test (/ 1.0 0.0))
+(test 3)
+(test 'hello)
+(test "hello")
+(test '(/ 0.0 0.0))
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id$
+d18 1
+@

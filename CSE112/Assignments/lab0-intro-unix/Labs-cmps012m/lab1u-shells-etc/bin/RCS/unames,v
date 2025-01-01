@@ -1,0 +1,76 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2020.08.21.00.10.30;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.10.31.20.32.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: unames,v 1.1 2019-10-31 13:32:24-07 - - $
+#
+# Print out the values of various unames options.
+#
+
+
+
+@@options = (
+  [qw (-a --all               )],
+  [qw (-s --kernel-name       )],
+  [qw (-n --nodename          )],
+  [qw (-r --kernel-release    )],
+  [qw (-v --kernel-version    )],
+  [qw (-m --machine           )],
+  [qw (-p --processor         )],
+  [qw (-i --hardware-platform )],
+  [qw (-o --operating-system  )],
+);
+
+for $opt (@@options) {
+   $value = qx(uname $opt->[0]);
+   chomp $value;
+   printf "uname %-22s = %s\n", "@@$opt", $value;
+}
+
+for $release (qw (/etc/redhat-release
+                  /etc/lsb-release /etc/os-release)) {
+   print "$release:\n", qx(cat $release) if -r $release;
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: unames,v 1.9 2016-12-05 14:27:50-08 - - $
+d22 1
+a22 1
+   $value = `uname $opt->[0]`;
+d29 1
+a29 1
+   print "$release:\n", `cat $release` if -r $release;
+@

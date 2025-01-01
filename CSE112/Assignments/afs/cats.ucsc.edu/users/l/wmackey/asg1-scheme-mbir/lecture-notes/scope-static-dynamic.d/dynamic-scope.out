@@ -1,0 +1,12 @@
+Line 48 x=1, y=2 :
+Line 41 x=1, y=2 :main(49)
+Line 43 x=6, y=2 :main(49)
+Line 33 x=6, y=2 :main(49) bar(44)
+Line 35 x=6, y=5 :main(49) bar(44)
+Line 22 x=6, y=5 :main(49) bar(44) foo(36)
+Line 24 x=3, y=5 :main(49) bar(44) foo(36)
+Line 27 x=3, y=4 :main(49) bar(44) foo(36)
+Line 29 x=3, y=5 :main(49) bar(44) foo(36)
+Line 37 x=6, y=5 :main(49) bar(44)
+Line 45 x=6, y=2 :main(49)
+Line 50 x=1, y=2 :

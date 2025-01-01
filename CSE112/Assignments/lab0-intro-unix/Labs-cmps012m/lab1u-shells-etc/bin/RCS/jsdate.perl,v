@@ -1,0 +1,1679 @@
+head	1.60;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.60
+date	2020.11.08.00.26.19;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2020.11.08.00.26.01;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2020.08.28.21.21.39;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2020.08.28.21.20.32;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2020.08.28.21.19.35;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2020.08.28.21.13.36;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2020.08.28.21.12.15;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2020.08.28.21.06.50;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2020.08.28.21.06.12;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2020.08.28.21.05.26;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2020.08.28.20.49.44;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2020.08.02.23.11.15;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2020.08.02.22.58.10;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2020.08.02.22.56.56;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2020.08.02.22.54.30;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2020.08.02.22.44.28;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2020.08.02.21.59.26;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2020.08.02.21.57.34;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2020.08.02.21.54.03;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2020.08.02.21.46.29;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2020.07.30.20.15.14;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2020.07.30.20.07.40;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2020.07.30.20.05.34;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2020.07.30.20.03.38;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2020.07.30.19.54.49;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2020.07.30.19.51.13;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2020.07.30.19.42.21;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2020.07.24.02.31.39;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2020.07.24.02.30.54;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2020.07.24.02.24.48;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2020.07.24.02.21.57;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2020.07.24.02.14.06;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2020.07.24.02.13.26;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2020.07.24.00.39.00;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2020.07.24.00.28.50;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2020.07.24.00.28.11;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2020.07.23.20.12.47;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2020.07.23.20.12.24;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2020.07.23.20.08.01;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2020.07.23.20.00.42;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2020.07.23.19.57.17;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2020.07.23.19.56.25;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2020.07.22.05.39.30;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.07.22.05.37.53;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.07.22.00.45.26;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2020.07.22.00.25.21;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2020.07.22.00.24.05;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.07.21.23.45.20;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.07.21.23.44.31;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.07.21.22.04.35;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.07.21.22.03.09;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.07.21.22.02.53;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.07.21.22.01.05;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.07.21.21.57.26;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.07.21.21.57.04;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.07.21.19.55.37;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.07.21.19.25.18;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.07.21.19.16.05;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.07.21.07.52.18;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.07.21.07.51.18;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.60
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: jsdate.perl,v 1.59 2020-11-07 16:26:01-08 - - $
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+
+my @@functions;
+my %descriptions;
+while (defined (my $line = <DATA>)) {
+   chomp $line;
+   my ($function, $description) = $line =~ m/(.*)\|(.*)/g;
+   push @@functions, $function;
+   $descriptions{$function} = $description;
+}
+
+my $outfile = $0;
+$outfile =~ s/\.perl$/.html/ or die "$outfile: s/.perl/.html/ failed";
+open JSDATE, ">$outfile" or die "$0: $outfile: $!";
+print "open >$outfile: OK\n";
+
+my $new_date = <<'________END________';
+var date = new Date();
+________END________
+
+my $time_ampm_1 = <<'________END________';
+function time_ampm_1() {
+   var hour = parseInt (date.getHours(), 10);
+   var min = ":" + ("0" + date.getMinutes()).slice (-2);
+   return (hour % 12 || 12) + min + (hour < 12 ? " AM" : " PM");
+}
+________END________
+
+my $time_ampm_2 = <<'________END________';
+function time_ampm_2() {
+   return date.toLocaleTimeString().replace (/:\d\d\s/, " ");
+}
+________END________
+
+my $date_time_1 = <<'________END________';
+function date_time_1() {
+   var day = date.toDateString().replace(/ \d+$/,"").replace(/ 0/," ");
+   var time = date.toLocaleTimeString().replace (/:\d\d\s/, " ");
+   return day + " @@ " + time;
+}
+________END________
+
+my $new_date_html = $new_date;
+my $time_ampm_1_html = $time_ampm_1;
+my $time_ampm_2_html = $time_ampm_2;
+my $date_time_1_html = $date_time_1;
+my %html_chars = qw (& &amp; < &lt; > &gt;);
+map {
+   s/[&<>]/$html_chars{$&}/gm;
+   s/^\s+/"&numsp;" x (length $&)/gme;
+   s/\n/<BR>\n/gm;
+}  $new_date_html,
+   $time_ampm_1_html,
+   $time_ampm_2_html,
+   $date_time_1_html;
+
+print JSDATE <<________END________;
+<HEAD>
+<STYLE>
+BODY {
+   color: #00FF00;
+   background-color: #000000;
+}
+TABLE {
+   border: 1px solid #00FF00;
+   border-spacing: 0;
+}
+TD {
+   border: 1px solid #00FF00;
+   padding-top: 0.25ex;
+   padding-bottom: 0.25ex;
+   padding-left: 0.333em;
+   padding-right: 0.333em;
+   vertical-align: top;
+}
+CODE {
+   display: block;
+   white-space: pre;
+}
+</STYLE>
+<SCRIPT>
+$new_date
+$time_ampm_1
+$time_ampm_2
+$date_time_1
+________END________
+
+for my $fn (@@functions) {
+   print JSDATE "function date_$fn() { return date.$fn(); }\n";
+}
+
+print JSDATE <<________END________;
+</SCRIPT>
+</HEAD>
+________END________
+
+sub fn_row($) {
+my ($fn) = @@_;
+<<________END________
+<TR>
+<TD>$fn()</TD>
+<TD><SPAN id="$fn">
+<SCRIPT>document.getElementById ("$fn").innerHTML = date_$fn();
+</SCRIPT></SPAN></TD>
+<TD> $descriptions{$fn} </TD>
+</TR>
+________END________
+}
+
+print JSDATE <<________END________;
+<BODY>
+<TABLE>
+<TR>
+<TD>date.valueOf()</TD>
+<TD><SPAN id="new_date">
+<SCRIPT>
+document.getElementById ("new_date").innerHTML = date.valueOf();
+</SCRIPT></SPAN></TD>
+<TD>$new_date_html</TD>
+</TR>
+<TR>
+<TD>time_ampm_1()</TD>
+<TD><SPAN id="time_ampm_1">
+<SCRIPT>
+document.getElementById ("time_ampm_1").innerHTML = time_ampm_1();
+</SCRIPT></SPAN></TD>
+<TD>$time_ampm_1_html</TD>
+</TR>
+<TR>
+<TD>time_ampm_2()</TD>
+<TD><SPAN id="time_ampm_2">
+<SCRIPT>
+document.getElementById ("time_ampm_2").innerHTML = time_ampm_2();
+</SCRIPT></SPAN></TD>
+<TD>$time_ampm_2_html</TD>
+</TR>
+<TR>
+<TD>date_time_1()</TD>
+<TD><SPAN id="date_time_1">
+<SCRIPT>
+document.getElementById ("date_time_1").innerHTML = date_time_1();
+</SCRIPT></SPAN></TD>
+<TD>$date_time_1_html</TD>
+</TR>
+________END________
+
+print JSDATE fn_row ($_) for @@functions;
+
+print JSDATE <<________END________;
+</TABLE>
+</BODY>
+________END________
+
+close JSDATE;
+
+__DATA__
+toLocaleString|Converts Date object to string, using locale
+toLocaleDateString|Get date portion of Date object, using locale
+toLocaleTimeString|Get time portion of Date object, using locale
+toString|Converts Date object to string
+toDateString|Converts date portion of Date object to string
+toTimeString|Converts time portion of Date object to string
+getFullYear|Get year as four digit number (yyyy)
+getMonth|Get month as number (0-11)
+getDate|Get day as number (1-31)
+getHours|Get hour (0-23)
+getMinutes|Get minute (0-59)
+getSeconds|Get second (0-59)
+getMilliseconds|Get millisecond (0-999)
+getTime|Get time (milliseconds since January 1, 1970)
+getDay|Get weekday as number (0-6)
+getTimezoneOffset|Get difference between UTC and local time, in minutes
+toISOString|Get date, using ISO standard
+toUTCString|Converts Date object to string, UTC
+getUTCFullYear|Get year, UTC
+getUTCMonth|Get month, UTC (from 0-11)
+getUTCDate|Get day of month, UTC (from 1-31)
+getUTCHours|Get hour, UTC (from 0-23)
+getUTCMinutes|Get minutes, UTC (from 0-59)
+getUTCSeconds|Get seconds, UTC (from 0-59)
+getUTCMilliseconds|Get milliseconds, UTC (from 0-999)
+getUTCDay|Get day of week, UTC (from 0-6)
+@
+
+
+1.59
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: jsdate.perl,v 1.58 2020-08-28 14:21:39-07 - - $
+d44 1
+a44 1
+   return day + "@@" + time;
+@
+
+
+1.58
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d40 8
+d51 1
+d57 4
+a60 1
+} $new_date_html, $time_ampm_1_html, $time_ampm_2_html;
+d90 1
+d141 8
+@
+
+
+1.57
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.56 2020-08-28 14:19:35-07 - - $';
+a134 1
+$RCSID
+@
+
+
+1.56
+log
+@-
+@
+text
+@d2 1
+a2 2
+my $RCSID = '$Id: jsdate.perl,v 1.55 2020-08-28 14:13:36-07 - - $';
+my $script = $0;
+d135 1
+a135 2
+<BR>$script
+<BR>$RCSID
+@
+
+
+1.55
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.54 2020-08-28 14:12:15-07 - - $';
+d136 2
+a137 2
+<BR><KBD>$script</KBD>
+<BR><KBD>$RCSID</KBD>
+@
+
+
+1.54
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.53 2020-08-28 14:06:50-07 - - $';
+d66 2
+a67 2
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+@
+
+
+1.53
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.52 2020-08-28 14:06:12-07 - - $';
+d66 2
+a67 2
+   padding-left: 0.25em;
+   padding-right: 0.25em;
+@
+
+
+1.52
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.51 2020-08-28 14:05:26-07 - - $';
+d136 2
+a137 2
+<BR>$script
+<BR>$RCSID
+@
+
+
+1.51
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.50 2020-08-28 13:49:44-07 - - $';
+d136 2
+a137 1
+$script<BR>$RCSID
+@
+
+
+1.50
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.49 2020-08-02 16:11:15-07 - - $';
+d136 1
+a136 2
+<BR>$script
+<BR>$RCSID
+@
+
+
+1.49
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.48 2020-08-02 15:58:10-07 - - $';
+d56 1
+a56 1
+   background-color: #1F1F1F;
+@
+
+
+1.48
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.47 2020-08-02 15:56:56-07 - - $';
+d59 1
+a59 1
+   border: 2px solid #00FF00;
+d63 1
+a63 1
+   border: 0.15em solid #00FF00;
+d66 2
+a67 2
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+d144 3
+a146 3
+toLocaleString|Converts Date object to string, using locale conventions
+toLocaleDateString|Get date portion of Date object, using locale conventions
+toLocaleTimeString|Get time portion of Date object, using locale conventions
+d148 1
+a148 1
+toDateString|Converts date portion of Date object into readable string
+d159 1
+a159 1
+getTimezoneOffset|Get difference between UTC time and local time, in minutes
+d161 9
+a169 9
+toUTCString|Converts Date object to string, according to UTC
+getUTCFullYear|Get year, according to UTC
+getUTCMonth|Get month, according to UTC (from 0-11)
+getUTCDate|Get day of month, according to UTC (from 1-31)
+getUTCHours|Get hour, according to UTC (from 0-23)
+getUTCMinutes|Get minutes, according to UTC (from 0-59)
+getUTCSeconds|Get seconds, according to UTC (from 0-59)
+getUTCMilliseconds|Get milliseconds, according to UTC (from 0-999)
+getUTCDay|Get day of week, according to UTC (from 0-6)
+@
+
+
+1.47
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.46 2020-08-02 15:54:30-07 - - $';
+d136 2
+a137 2
+<BR>Script: $script
+<BR>RCS Id: $RCSID
+@
+
+
+1.46
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.45 2020-08-02 15:44:28-07 - - $';
+d37 1
+a37 2
+   var time = date.toLocaleTimeString().replace (/:\d\d\s/, " ");
+   return time;
+@
+
+
+1.45
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.44 2020-08-02 14:59:26-07 - - $';
+d23 4
+a27 1
+var date = new Date();
+d42 1
+d50 1
+a50 1
+} $time_ampm_1_html, $time_ampm_2_html;
+d77 1
+d107 8
+@
+
+
+1.44
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.43 2020-08-02 14:57:34-07 - - $';
+d23 1
+a23 1
+my $time_ampm = <<________END________;
+d25 1
+a25 1
+function time_ampm() {
+d32 15
+a46 3
+my $time_ampm_html = $time_ampm;
+map {s/^\s+/"&numsp;" x (length $&)/gme; s/\n/<BR>\n/gm}
+      $time_ampm_html;
+d73 2
+a74 1
+$time_ampm
+d103 10
+a112 2
+<TD>time_ampm()</TD>
+<TD><SPAN id="time_ampm">
+d114 1
+a114 1
+document.getElementById ("time_ampm").innerHTML = time_ampm();
+d116 1
+a116 1
+<TD>$time_ampm_html</TD>
+@
+
+
+1.43
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.42 2020-08-02 14:54:03-07 - - $';
+d115 2
+a126 2
+toDateString|Converts date portion of Date object into readable string
+toTimeString|Converts time portion of Date object to string
+@
+
+
+1.42
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.41 2020-08-02 14:46:29-07 - - $';
+d32 4
+a84 4
+
+my $time_ampm_html = $time_ampm;
+map {s/^\s+/"&numsp;" x (length $&)/gme; s/\n/<BR>\n/gm}
+      $time_ampm_html;
+@
+
+
+1.41
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.40 2020-07-30 13:15:14-07 - - $';
+d103 2
+a104 2
+<P>Script: $script
+<BR>RCS Id: $RCSID</P>
+a136 1
+valueOf|Get primitive value of Date object
+@
+
+
+1.40
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.39 2020-07-30 13:07:40-07 - - $';
+d35 4
+d40 1
+a40 1
+   border: 2px solid black;
+d44 1
+a44 1
+   border: 0.15em solid black;
+@
+
+
+1.39
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.38 2020-07-30 13:05:34-07 - - $';
+d24 1
+a25 1
+   var date = new Date();
+d57 1
+a57 1
+   print JSDATE "function date_$fn() { return (new Date()).$fn(); }\n";
+@
+
+
+1.38
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.37 2020-07-30 13:03:38-07 - - $';
+d107 27
+a133 27
+toLocaleString|Converts a Date object to a string, using locale conventions
+toLocaleDateString|Get the date portion of a Date object, using locale conventions
+toLocaleTimeString|Get the time portion of a Date object, using locale conventions
+toString|Converts a Date object to a string
+getFullYear|Get the year as a four digit number (yyyy)
+getMonth|Get the month as a number (0-11)
+getDate|Get the day as a number (1-31)
+getHours|Get the hour (0-23)
+getMinutes|Get the minute (0-59)
+getSeconds|Get the second (0-59)
+getMilliseconds|Get the millisecond (0-999)
+getTime|Get the time (milliseconds since January 1, 1970)
+getDay|Get the weekday as a number (0-6)
+getTimezoneOffset|Get the difference between UTC time and local time, in minutes
+toDateString|Converts the date portion of a Date object into a readable string
+toTimeString|Converts the time portion of a Date object to a string
+toISOString|Get the date, using the ISO standard
+toUTCString|Converts a Date object to a string, according to universal time
+getUTCFullYear|Get the year, according to universal time
+getUTCMonth|Get the month, according to universal time (from 0-11)
+getUTCDate|Get the day of the month, according to universal time (from 1-31)
+getUTCHours|Get the hour, according to universal time (from 0-23)
+getUTCMinutes|Get the minutes, according to universal time (from 0-59)
+getUTCSeconds|Get the seconds, according to universal time (from 0-59)
+getUTCMilliseconds|Get the milliseconds, according to universal time (from 0-999)
+getUTCDay|Get the day of the week, according to universal time (from 0-6)
+valueOf|Get the primitive value of a Date object
+@
+
+
+1.37
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.36 2020-07-30 12:54:49-07 - - $';
+d70 1
+a70 1
+<TD>"<SPAN id="$fn">
+d72 1
+a72 1
+</SCRIPT></SPAN>"</TD>
+d87 1
+a87 1
+<TD>"<SPAN id="time_ampm">
+d90 1
+a90 1
+</SCRIPT></SPAN>"</TD>
+@
+
+
+1.36
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.35 2020-07-30 12:51:13-07 - - $';
+d108 2
+a109 2
+toLocaleDateString|Returns the date portion of a Date object as a string, using locale conventions
+toLocaleTimeString|Returns the time portion of a Date object as a string, using locale conventions
+d120 1
+a120 1
+getTimezoneOffset|Returns the time difference between UTC time and local time, in minutes
+d123 11
+a133 1
+toISOString|Returns the date as a string, using the ISO standard
+@
+
+
+1.35
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.34 2020-07-30 12:42:21-07 - - $';
+a77 5
+print JSDATE "<BODY>\n<TABLE>\n";
+
+
+print JSDATE fn_row ($_) for @@functions;
+
+d83 2
+d94 2
+@
+
+
+1.34
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.33 2020-07-23 19:31:39-07 - - $';
+d23 9
+d53 1
+a59 9
+my $time_ampm = <<________END________;
+function time_ampm() {
+   var date = new Date();
+   var hour = parseInt (date.getHours(), 10);
+   var min = ":" + ("0" + date.getMinutes()).slice (-2);
+   return (hour % 12 || 12) + min + (hour < 12 ? " AM" : " PM");
+}
+________END________
+
+a60 1
+$time_ampm
+d77 1
+d79 2
+@
+
+
+1.33
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.32 2020-07-23 19:30:54-07 - - $';
+d106 2
+a121 2
+toLocaleDateString|Returns the date portion of a Date object as a string, using locale conventions
+toLocaleTimeString|Returns the time portion of a Date object as a string, using locale conventions
+@
+
+
+1.32
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.31 2020-07-23 19:24:48-07 - - $';
+d53 1
+a53 1
+   var h24 = parseInt (date.getHours(), 10);
+d55 1
+a55 1
+   return (h24 % 12 || 12) + min + (h24 < 12 ? " AM" : " PM");
+@
+
+
+1.31
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.30 2020-07-23 19:21:57-07 - - $';
+a49 7
+my $hour_ampm = <<________END________;
+function hour_ampm() {
+   var h24 = parseInt ((new Date()).getHours(), 10);
+   return (h24 % 12 || 12) + (h24 < 12 ? " AM" : " PM");
+}
+________END________
+
+a59 1
+$hour_ampm
+a79 1
+my $hour_ampm_html = $hour_ampm;
+d82 1
+a82 12
+      $hour_ampm_html, $time_ampm_html;
+
+print JSDATE <<________END________;
+<TR>
+<TD>hour_ampm()</TD>
+<TD>"<SPAN id="hour_ampm">
+<SCRIPT>
+document.getElementById ("hour_ampm").innerHTML = hour_ampm();
+</SCRIPT></SPAN>"</TD>
+<TD>$hour_ampm_html</TD>
+</TR>
+________END________
+@
+
+
+1.30
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.29 2020-07-23 19:14:06-07 - - $';
+d90 1
+a90 1
+map {s/^\s+/"&mspace;" x (length $&)/gme; s/\n/<BR>\n/gm}
+@
+
+
+1.29
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.28 2020-07-23 19:13:26-07 - - $';
+d90 1
+a90 1
+map {s/^\s+/"&nbsp;" x (length $&)/gme; s/\n/<BR>\n/gm}
+@
+
+
+1.28
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.27 2020-07-23 17:39:00-07 - - $';
+d90 1
+a90 1
+map {s/^\s+/"&numsp;" x (length $&)/gme; s/\n/<BR>\n/gm}
+@
+
+
+1.27
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.26 2020-07-23 17:28:50-07 - - $';
+d99 1
+a99 2
+</SCRIPT>
+</SPAN>"</TD>
+d110 1
+a110 2
+</SCRIPT>
+</SPAN>"</TD>
+@
+
+
+1.26
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.25 2020-07-23 17:28:11-07 - - $';
+d63 1
+a63 2
+}    
+</SCRIPT>  
+@
+
+
+1.25
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.24 2020-07-23 13:12:47-07 - - $';
+d31 1
+a31 1
+   border: 15em solid black;
+@
+
+
+1.24
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.23 2020-07-23 13:12:24-07 - - $';
+d28 1
+a28 1
+   border-spacing: 0px;
+d31 3
+a33 3
+   border: 2px solid black;
+   padding-top: 0.4ex;
+   padding-bottom: 0.2ex;
+@
+
+
+1.23
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.22 2020-07-23 13:08:01-07 - - $';
+d61 1
+a61 1
+   var min = ":" + ("0" + date.getMinutes()).slice (-3);
+@
+
+
+1.22
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.21 2020-07-23 13:00:42-07 - - $';
+d61 1
+a61 1
+   var min = (":0" + date.getMinutes()).slice (-3);
+@
+
+
+1.21
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.20 2020-07-23 12:57:17-07 - - $';
+d61 2
+a62 2
+   var min = ("0" + date.getMinutes()).slice (-2);;
+   return (h24 % 12 || 12) + ":" + min + (h24 < 12 ? " AM" : " PM");
+@
+
+
+1.20
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.19 2020-07-23 12:56:25-07 - - $';
+d61 1
+a61 1
+   var min = date.getMinutes();
+@
+
+
+1.19
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.18 2020-07-21 22:39:30-07 - - $';
+d55 3
+@
+
+
+1.18
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.17 2020-07-21 22:37:53-07 - - $';
+d55 7
+d66 1
+d87 4
+a90 2
+$hour_ampm_html =~ s/^\s+/"&numsp;" x (length $&)/gme;
+$hour_ampm_html =~ s/\n/<BR>\n/gm;
+d94 1
+a94 1
+<TD> <SPAN id="hour_ampm">
+d98 18
+a115 2
+</SPAN></TD>
+<TD>$hour_ampm_html</TD></TR>
+@
+
+
+1.17
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.16 2020-07-21 17:45:26-07 - - $';
+d67 1
+a67 1
+<TD><KBD>$fn()</KBD></TD>
+d83 1
+a83 1
+<TD><KBD>hour_ampm()</KBD></TD>
+d91 2
+a92 2
+<P>Script: <KBD>$script</KBD>
+<BR>RCS Id: <KBD>$RCSID</KBD></P>
+@
+
+
+1.16
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.15 2020-07-21 17:25:21-07 - - $';
+d68 3
+a70 5
+<TD> <SPAN id="$fn">
+<SCRIPT>
+document.getElementById ("$fn").innerHTML = date_$fn();
+</SCRIPT>
+</SPAN> </TD>
+d78 3
+d88 2
+a89 3
+</SPAN></TD> <TD>
+<CODE>$hour_ampm</CODE>
+</TD></TR>
+@
+
+
+1.15
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.14 2020-07-21 17:24:05-07 - - $';
+d53 1
+a53 2
+   var h12 = h24 == 0 ? 12 : h24 > 12 ? h24 - 12 : h24;
+   return h12.toString() + (h24 < 12 ? " AM" : " PM");
+@
+
+
+1.14
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.13 2020-07-21 16:45:20-07 - - $';
+d52 3
+a54 3
+   var hr24 = parseInt ((new Date()).getHours(), 10);
+   var hr12 = hr24 == 0 ? 12 : hr24 > 12 ? hr24 - 12 : hr24;
+   return hr12.toString() + (hr24 < 12 ? " AM" : " PM");
+@
+
+
+1.13
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.11 2020-07-21 15:04:35-07 - - $';
+d23 22
+a44 18
+print JSDATE <<__END__;
+   <HEAD>
+   <STYLE>
+   TABLE {
+      border: 2px solid black;
+      border-spacing: 0px;
+   }
+   TD {
+      border: 2px solid black;
+      padding-top: 0.4ex;
+      padding-bottom: 0.2ex;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      vertical-align: top;
+   }
+   </STYLE>
+   <SCRIPT>
+__END__
+d50 7
+a56 13
+my $hour_ampm = <<__END__;
+   function hour_ampm() {
+      var hr24 = parseInt ((new Date()).getHours(), 10);
+      var hr12 = hr24 == 0 ? 12 : hr24 > 12 ? hr24 - 12 : hr24;
+      return hr12.toString() + (hr24 < 12 ? " AM" : " PM");
+   }
+__END__
+
+print JSDATE <<__END__;
+   $hour_ampm
+   </SCRIPT>
+   </HEAD>
+__END__
+d58 20
+d79 17
+a95 29
+for my $fn (@@functions) {
+   print JSDATE <<__END__;
+      <TR>
+      <TD> $fn() </TD>
+      <TD> <SPAN id="$fn">
+      <SCRIPT>
+      document.getElementById ("$fn").innerHTML = date_$fn();
+      </SCRIPT>
+      </SPAN> </TD>
+      <TD> $descriptions{$fn} </TD>
+      </TR>
+__END__
+}
+
+print JSDATE <<__END__;
+   <TR>
+   <TD>hour_ampm() </TD>
+   <TD> <SPAN id="hour_ampm">
+   <SCRIPT>
+   document.getElementById ("hour_ampm").innerHTML = hour_ampm();
+   </SCRIPT>
+   </SPAN> </TD>
+   <TD><CODE>$hour_ampm</CODE></TD>
+   </TR>
+   </TABLE>
+   <P>Script: <KBD>$script</KBD>
+   <BR>RCS Id: <KBD>$RCSID</KBD></P>
+   </BODY>
+__END__
+@
+
+
+1.12
+log
+@-
+@
+text
+@d46 1
+a46 1
+my @@hour_ampm = split /^/m, <<__END__;
+d55 1
+a55 1
+   @@hour_ampm
+d83 1
+a83 1
+   <TD><CODE>@@hour_ampm</CODE></TD>
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.10 2020-07-21 15:03:09-07 - - $';
+d36 1
+d46 13
+a58 1
+print JSDATE "</SCRIPT>\n</HEAD>\n";
+d74 17
+a90 4
+print JSDATE "</TABLE>\n";
+print JSDATE "<P>Script: <KBD>$script</KBD>\n";
+print JSDATE "<BR>RCS Id: <KBD>$RCSID</KBD></P>\n";
+print JSDATE "</BODY>\n";
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.9 2020-07-21 15:02:53-07 - - $';
+d62 2
+a63 2
+print JSDATE "<P>Script: $script\n";
+print JSDATE "<BR>RCS Id: $RCSID</P>\n";
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.8 2020-07-21 15:01:05-07 - - $';
+d62 1
+a62 1
+print JSDATE "<P>Script: $script\n"
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 2
+a3 1
+my $RCSID = '$Id: jsdate.perl,v 1.7 2020-07-21 14:57:26-07 - - $';
+d62 2
+a63 1
+print JSDATE "<P>Generated by $RCSID</P>\n";
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+my $RCSID = '$Id: jsdate.perl,v 1.6 2020-07-21 14:57:04-07 - - $';
+d31 4
+a34 1
+      padding: 4px;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+$RCSID = '$Id: jsdate.perl,v 1.5 2020-07-21 12:55:37-07 - - $';
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: jsdate.perl,v 1.4 2020-07-21 12:25:18-07 - - $
+d58 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: jsdate.perl,v 1.3 2020-07-21 12:16:05-07 - - $
+d4 1
+d17 6
+a22 1
+print <<__END__;
+d38 1
+a38 1
+   print "function date_$fn() { return (new Date()).$fn(); }\n";
+d41 1
+a41 1
+print "</SCRIPT>\n</HEAD>\n";
+d43 1
+a43 1
+print "<BODY>\n<TABLE>\n";
+d45 1
+a45 1
+   print <<__END__;
+d57 3
+a59 2
+print "</TABLE>\n";
+print "</BODY>\n";
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: jsdate.per,v 1.1 2020-07-21 00:49:23-07 - - $
+d17 2
+a18 2
+   <head>
+   <style>
+d27 2
+a28 2
+   </style>
+   <script>
+d32 1
+a32 3
+   print <<__END__;
+      function date_$fn (date) { return (new Date()).$fn(); }
+__END__
+d35 1
+a35 4
+print <<__END__;
+   </script>
+   </head>
+__END__
+d37 1
+a37 4
+print <<__END__;
+   <body>
+   <TABLE>
+__END__
+d42 5
+a46 5
+      <TD> <span id="$fn">
+      <script>
+      document.getElementById ("$fn").innerHTML = date_$fn (date);
+      </script>
+      </span> </TD>
+d51 2
+a52 4
+print <<__END__;
+   </TABLE>
+   </BODY>
+__END__
+@
+
+
+1.2
+log
+@-
+@
+text
+@d7 4
+a10 1
+for (my $line = <DATA>) {
+d12 2
+a13 1
+   print "$function|$description\n ";
+d16 47
+d65 17
+a81 17
+getFullYear()|Get the year as a four digit number (yyyy)
+getMonth()|Get the month as a number (0-11)
+getDate()|Get the day as a number (1-31)
+getHours()|Get the hour (0-23)
+getMinutes()|Get the minute (0-59)
+getSeconds()|Get the second (0-59)
+getMilliseconds()|Get the millisecond (0-999)
+getTime()|Get the time (milliseconds since January 1, 1970)
+getDay()|Get the weekday as a number (0-6)
+Date.now()|Get the time. ECMAScript 5.
+getTimezoneOffset()|Returns the time difference between UTC time and local time, in minutes
+toDateString()|Converts the date portion of a Date object into a readable string
+toISOString()|Returns the date as a string, using the ISO standard
+toLocaleDateString()|Returns the date portion of a Date object as a string, using locale conventions
+toLocaleTimeString()|Returns the time portion of a Date object as a string, using locale conventions
+toLocaleString()|Converts a Date object to a string, using locale conventions
+toString()|Converts a Date object to a string
+@
+
+
+1.1
+log
+@-
+@
+text
+@a6 2
+my %functions
+my @@functions;
+@

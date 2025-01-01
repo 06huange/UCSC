@@ -1,0 +1,140 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.5
+date	2021.04.27.18.53.12;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.27.18.52.59;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.27.18.52.45;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.27.18.46.32;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.27.18.37.57;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@// $Id: abs-int32.cpp,v 1.4 2021-04-27 11:52:59-07 - - $
+
+#include <bitset>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+int32_t abs (int32_t n) {
+   int32_t mask = n >> 31;
+   return (n ^ mask) - mask;
+}
+
+void print (const char* label, int32_t x) {
+   cout << setw(10) << label << " = "
+        << bitset<8>(x) << " = " << x << endl;
+}
+#define PRINT(X) print (#X, X);
+
+void instrumented_abs (int32_t n) {
+   cout << endl << __PRETTY_FUNCTION__ << endl;
+   PRINT (n);
+   int32_t mask = n >> 7;
+   PRINT (mask);
+   PRINT (n ^ mask);
+   PRINT ((n ^ mask) - mask);
+}
+
+int main() {
+   cout << "abs(+39) = " << abs(+39) << endl;
+   cout << "abs(-39) = " << abs(-39) << endl;
+}
+
+//  
+//  Dissection:
+//  
+//  n      = 00100111 = 39      n       = 11011001 = -39
+//  mask   = 00000000 =  0      mask    = 11111111 =  -1
+//  n^mask = 00100111 = 39      n^mask  = 00100110 =  38
+//  *-mask = 00100111 = 39      *-mask  = 00100111 =  39
+//  
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: abs-int32.cpp,v 1.3 2021-04-27 11:52:45-07 - - $
+d15 1
+a15 1
+        << bitset<8>(n) << " = " << x << endl;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: abs-int32.cpp,v 1.2 2021-04-27 11:46:32-07 - - $
+d4 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: abs-int32.cpp,v 1.1 2021-04-27 11:37:57-07 - - $
+d3 1
+d9 16
+a24 2
+   int32_t result = (n ^ mask) - mask;
+   return result;
+d28 1
+a28 1
+   cout << "abs(39) = " << abs(39) << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d16 9
+@

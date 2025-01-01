@@ -1,0 +1,53 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2020.08.21.00.19.21;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.10.31.20.32.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: xcd,v 1.1 2019-10-31 13:32:24-07 - - $
+
+for dir in $*
+do
+   shellcmd="cd $dir; xtlabel $dir; exec /bin/bash --login"
+   echo $(basename $0): $shellcmd
+   xterm -ut +ls -e sh -c "$shellcmd" &
+   sleep 1
+done
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: xcd,v 1.5 2018-08-22 19:04:09-07 - - $
+d7 1
+a7 1
+   echo `basename $0`: $shellcmd
+@

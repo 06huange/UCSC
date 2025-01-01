@@ -1,0 +1,77 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.03.04.19.08.12;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.03.04.18.55.50;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: caller.perl,v 1.1 2021-03-04 10:55:50-08 - - $
+
+sub display {
+   my ($arg) = @@_;
+   print "$arg: ";
+   for (my $i = 1;; ++$i) {
+      my @@caller = caller ($i);
+      last unless @@caller;
+      $caller[3] =~ s/main:://;
+      print "$caller[3]($caller[2]): ";
+   }
+   print "\n";
+}
+
+sub foo {
+   display __LINE__;
+}
+
+sub bar {
+   display __LINE__;
+   foo();
+   display __LINE__;
+}
+
+sub main {
+   display __LINE__;
+   bar();
+   display __LINE__;
+}
+
+display __LINE__;
+main();
+display __LINE__;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d7 4
+a10 2
+   for ($i = 0; $i < 5; ++$i) {
+      @@caller = caller 
+@

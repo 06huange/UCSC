@@ -1,0 +1,95 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.4
+date	2021.04.20.23.53.41;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.02.03.04.09.09;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.02.03.04.08.30;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.01.26.21.02.01;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/ocaml/bin/ocaml
+(* $Id$ *)
+
+#load "str.cma";;
+
+open Printf;;
+
+let buffer : string list ref = ref [];;
+
+let rec read_number () = match !buffer with
+    | head::tail -> (buffer := tail;
+                     try float_of_string head
+                     with Failure _ -> nan)
+    | [] -> let line = input_line stdin
+            in (buffer := Str.split (Str.regexp "[ \\t]+") line;
+                read_number ());;
+
+let rec main () =
+    try let number = read_number()
+        in (printf "%.16g\n%!" number;
+            main ())
+    with End_of_file -> print_endline "End_file";;
+
+main ();;
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d19 2
+a20 2
+        in printf "%.16g\n%!" number;
+           main ()
+@
+
+
+1.1
+log
+@-
+@
+text
+@d20 1
+a20 1
+        main ()
+@

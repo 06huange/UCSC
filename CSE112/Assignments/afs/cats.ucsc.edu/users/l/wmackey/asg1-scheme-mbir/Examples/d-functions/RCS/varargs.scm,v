@@ -1,0 +1,56 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.04.09.17.34.56;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.01.05.35.41;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: varargs.scm,v 1.1 2021-03-31 22:35:41-07 - - $
+
+;;
+;; load with (load "varargs.scm")
+;;
+;; example defining a function with a variable number of params
+;;
+
+(define (writeln . list) (map write list) (newline))
+
+(define (foo fst snd . rem )
+        (writeln "foo = " foo)
+        (writeln "fst = " fst)
+        (writeln "snd = " snd)
+        (writeln "rem = " rem))
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 3
+a3 1
+;; $Id: varargs.scm,v 1.2 2009-02-12 19:41:43-08 - - $
+@

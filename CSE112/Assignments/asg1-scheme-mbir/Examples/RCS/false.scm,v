@@ -1,0 +1,59 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2020.08.31.00.53.59;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.08.31.00.53.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: false.scm,v 1.1 2020-08-30 17:53:46-07 - - $
+
+(define (tf arg)
+    (if arg 'true 'false))
+
+(define (fn arg . rem)
+    (printf "~n")
+    (printf "arg: ~s~n" (tf arg))
+    (printf "rem: ~s~n" (tf rem)))
+
+(fn #t)
+(fn #f)
+(fn 0)
+(fn "")
+(fn '())
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: optarg.scm,v 1.2 2020-08-30 17:48:10-07 - - $
+d9 1
+a9 1
+    (printf "arg: ~s~n" (tf arg1))
+@

@@ -1,0 +1,16 @@
+#!/bin/bash
+# $Id: mk,v 1.3 2021-04-25 13:52:07-07 - - $
+cid -s $0 edit-sfile.perl *.c *.ml
+for file in *.c; do
+   gcc -O2 -S $file
+   base=${file%.c}
+   mv $base.s $file.s
+   edit-sfile.perl $file.s $file
+done
+for file in *.ml; do
+   ocamlopt -S -c $file
+   base=${file%.ml}
+   rm $base.{o,cmi,cmx}
+   mv $base.s $file.s
+   edit-sfile.perl $file.s $file
+done

@@ -1,0 +1,50 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2020.08.22.20.36.57;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.08.22.20.32.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: HTML_Colors.test.perl,v 1.1 2020-08-22 13:32:48-07 - - $
+
+use lib "/afs/cats.ucsc.edu/courses/cse110a-wm/bin/perl5lib/";
+
+use HTML_Colors;
+my %COLOR = HTML_Colors;
+
+print "$0\n";
+printf "%-10s => %s\n", $_, $COLOR{$_} for sort keys %COLOR;
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 3
+a4 1
+# $Id: HTML_Colors.test.perl,v 1.4 2020-08-22 12:48:29-07 - - $
+@

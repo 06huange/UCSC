@@ -1,0 +1,54 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2020.09.08.05.09.36;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.09.08.04.09.27;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/usr/bin/expect -f
+
+spawn mzscheme
+
+while {[gets stdin line] != -1} {
+   expect "> "
+   send "$line\n"
+}
+
+send "\004"
+send_user "\n"
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d3 1
+a3 1
+spawn gst
+d5 1
+a5 1
+while {[gets stdin line] != 1} {
+@

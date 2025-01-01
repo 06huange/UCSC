@@ -1,0 +1,143 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.5
+date	2021.04.22.01.20.54;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.21.06.12.51;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.21.06.12.36;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.21.06.12.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.21.06.05.39;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/ocaml/bin/ocaml
+(* $Id: find.ml,v 1.4 2021-04-20 23:12:51-07 - - $ *)
+
+(*
+* Linear search to find an item in a list of (key*value) tuples.
+*)
+
+open Printf;;
+
+let rec find eq want list = match list with
+    | [] -> None
+    | (key,value)::tail when eq want key -> Some value
+    | _::tail -> find eq want tail;;
+
+(*
+val find : ('a -> 'b -> bool)
+         -> 'a
+         -> ('b * 'c) list
+         -> 'c option = <fun>
+*)
+
+let data = [1,"one"; 3,"three"; 5,"five"; 7,"seven"; ];;
+
+let print (key, value) = 
+    printf "(%d, %s)\n" key value;;
+
+printf "Data:\n";;
+List.iter print data;;
+
+let search key =
+    let result = find (=) key data
+    in  match result with
+        | None -> printf "%d -> None\n" key
+        | Some value -> printf "%d -> Some %s\n" key value;;
+
+List.iter search [1; 5; 7; 9; 11];;
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: find.ml,v 1.3 2021-04-20 23:12:36-07 - - $ *)
+d14 7
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: find.ml,v 1.2 2021-04-20 23:12:19-07 - - $ *)
+d27 1
+a27 1
+        | Some value -> printf "%d -> Some %d\n" key value;;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: find.ml,v 1.1 2021-04-20 23:05:39-07 - - $ *)
+d18 1
+a18 1
+    printf "(%d, %d)\n" key value;;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+(* $Id: hashexample.ml,v 1.4 2021-04-20 16:53:41-07 - - $ *)
+d12 1
+a12 1
+    | (key,value)::tail when eq want key -> value
+d15 1
+a15 1
+let data = [1,2; 3,4; 5,6; 7,8; ];;
+d20 1
+a20 1
+printf "Data:\n"
+d29 1
+a29 1
+List.iter search [1 5 7 9 11];;
+@

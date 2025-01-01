@@ -1,0 +1,517 @@
+head	1.19;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.19
+date	2020.12.11.04.54.00;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2020.09.01.22.28.46;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.08.20.20.39.15;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.08.20.20.38.22;	author wmackey;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2020.08.07.04.24.26;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2020.08.01.05.50.48;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.08.01.05.49.20;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.07.24.22.43.27;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.07.21.05.16.28;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.07.21.05.07.59;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.07.18.20.25.30;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.07.18.20.20.54;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.07.18.06.56.36;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.07.18.06.49.45;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.07.18.06.43.09;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.07.18.06.40.45;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.07.08.22.18.56;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.06.29.02.48.07;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.10.31.20.32.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.19
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: mkhtaccess,v 1.18 2020-09-01 15:28:46-07 - - $
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+
+my @@data;
+while (<DATA>) {push @@data, $_ unless m/^#/}
+
+unless (@@ARGV) {
+   print STDERR "Usage: $0 course-root-directory...\n";
+   exit 1;
+}
+
+for my $rootdir (@@ARGV) {
+   $rootdir =~ s|/*$||;
+   if ($rootdir !~ m|^/afs/cats.ucsc.edu/courses/[^/]*/*$|) {
+      print STDERR "$0: $rootdir: not a course root directory\n";
+      next;
+   }
+   unless (chdir $rootdir) {
+      print STDERR "$0: chdir $rootdir: $!\n";
+      next;
+   }
+   my $htaccess = ".htaccess";
+   unless (open HTACCESS, ">$htaccess") {
+      print STDERR "$0: $htaccess: $!";
+      next;
+   }
+   print "$0: $htaccess: OK\n";
+   print HTACCESS "# \$Id\$\n\n";
+   print HTACCESS "AuthUserFile \"$rootdir/.htpasswd\"\n";
+   print HTACCESS "AuthType Basic\n";
+   print HTACCESS "AuthName \"$rootdir\"\n";
+   print HTACCESS @@data;
+   close HTACCESS;
+}
+
+__DATA__
+
+#<Limit GET POST PUT>
+Satisfy any
+Order Deny,Allow
+Deny from all
+Allow from ucsc.edu
+Require valid-user
+#</Limit>
+
+#AddIcon /icons/ball.red.gif ..
+#Options +Includes
+#Options All
+DirectoryIndex index.html .index
+HeaderName HEADER.html
+ReadmeName README
+
+IndexOptions +DescriptionWidth=*
+IndexOptions +FancyIndexing
+IndexOptions +FoldersFirst
+IndexOptions +IconHeight=8
+IndexOptions +NameWidth=50
+IndexOptions +SuppressDescription
+IndexOptions +SuppressHTMLPreamble
+IndexOptions -IconsAreLinks
+IndexOptions -IgnoreCase
+IndexOptions -SuppressIcon
+IndexOptions -SuppressSize
+IndexOrderDefault Ascending Name
+
+AddType text/plain .mm .scm .lis .pl .st
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} ^.+/[0-9]+$
+
+@
+
+
+1.18
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.17 2020-08-20 13:39:15-07 - - $
+d59 1
+a63 1
+IndexOptions -FoldersFirst
+@
+
+
+1.17
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.16 2020-08-20 13:38:22-07 wmackey Exp $
+a37 1
+   system "mkheader";
+d69 2
+@
+
+
+1.16
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.15 2020-08-06 21:24:26-07 - - $
+@
+
+
+1.15
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.14 2020-07-31 22:50:48-07 - - $
+@
+
+
+1.14
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.13 2020-07-31 22:49:20-07 - - $
+a57 4
+#IndexOptions +IconWidth=16
+#IndexOptions +IconsAreLinks
+#IndexOptions +ScanHTMLTitles
+#IndexOptions +SuppressIcon
+a63 1
+IndexOptions +SuppressSize
+d65 1
+d67 2
+a70 38
+#AddDescription "ASCII text file"     .cat
+#AddDescription "ASCII text file"     .tt
+#AddDescription "ASCII text file"     .txt
+#AddDescription "Bison grammar"       .y
+#AddDescription "C code"              .c
+#AddDescription "C header"            .h
+#AddDescription "C++ code"            .cc
+#AddDescription "C++ code"            .cpp
+#AddDescription "C++ code"            .cxx
+#AddDescription "C++ template code"   .tcc
+#AddDescription "Flex scanner"        .l
+#AddDescription "HTML file"           .html
+#AddDescription "Java class file"     .class
+#AddDescription "Java jar file"       .jar
+#AddDescription "Java source code"    .java
+#AddDescription "Makefile"            Makefile
+#AddDescription "Object file"         .o
+#AddDescription "Ocaml interface"     .mli
+#AddDescription "Ocaml source"        .ml
+#AddDescription "PDF document"        .pdf
+#AddDescription "Perl program"        .perl
+#AddDescription "Postscript document" .ps
+#AddDescription "Postscript document" .psdoc
+#AddDescription "Revision Control"    RCS
+#AddDescription "Shell script"        .sh
+#AddDescription "groff -mm markup"    .mm
+#AddDescription "man page"            .man
+
+AddType text/html  .index
+AddType text/plain .man
+AddType text/plain .mm
+AddType text/plain .sh
+AddType text/plain .tt
+AddType text/plain HEADER
+AddType text/plain README
+
+DefaultType text/plain
+
+a72 1
+RewriteRule .* - [T=text/plain]
+@
+
+
+1.13
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.12 2020-07-24 15:43:27-07 - - $
+a57 1
+#IndexOptions +FoldersFirst
+d69 1
+@
+
+
+1.12
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.11 2020-07-20 22:16:28-07 - - $
+d58 1
+a64 1
+IndexOptions +FoldersFirst
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.10 2020-07-20 22:07:59-07 - - $
+d66 1
+a66 1
+IndexOptions +NameWidth=40
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.9 2020-07-18 13:25:30-07 - - $
+d61 1
+d65 1
+a65 1
+IndexOptions +IconHeight=12
+a68 1
+IndexOptions +SuppressIcon
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.8 2020-07-18 13:20:54-07 - - $
+d68 1
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.7 2020-07-17 23:56:36-07 - - $
+d51 1
+a53 1
+AddIcon /icons/ball.red.gif ..
+a57 1
+IndexOptions +IconHeight=8
+d64 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.6 2020-07-17 23:49:45-07 - - $
+d58 1
+a58 1
+#IndexOptions +IconHeight=8
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.5 2020-07-17 23:43:09-07 - - $
+d58 2
+a64 2
+IndexOptions +IconHeight=8
+IndexOptions +IconWidth=16
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.4 2020-07-17 23:40:45-07 - - $
+d68 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.3 2020-07-08 15:18:56-07 - - $
+d66 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.2 2020-06-28 19:48:07-07 - - $
+d8 2
+a9 1
+my @@data = <DATA>;
+d58 2
+a64 1
+IndexOptions +IconsAreLinks
+a65 1
+IndexOptions +ScanHTMLTitles
+d70 27
+a96 27
+AddDescription "ASCII text file"     .cat
+AddDescription "ASCII text file"     .tt
+AddDescription "ASCII text file"     .txt
+AddDescription "Bison grammar"       .y
+AddDescription "C code"              .c
+AddDescription "C header"            .h
+AddDescription "C++ code"            .cc
+AddDescription "C++ code"            .cpp
+AddDescription "C++ code"            .cxx
+AddDescription "C++ template code"   .tcc
+AddDescription "Flex scanner"        .l
+AddDescription "HTML file"           .html
+AddDescription "Java class file"     .class
+AddDescription "Java jar file"       .jar
+AddDescription "Java source code"    .java
+AddDescription "Makefile"            Makefile
+AddDescription "Object file"         .o
+AddDescription "Ocaml interface"     .mli
+AddDescription "Ocaml source"        .ml
+AddDescription "PDF document"        .pdf
+AddDescription "Perl program"        .perl
+AddDescription "Postscript document" .ps
+AddDescription "Postscript document" .psdoc
+AddDescription "Revision Control"    RCS
+AddDescription "Shell script"        .sh
+AddDescription "groff -mm markup"    .mm
+AddDescription "man page"            .man
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkhtaccess,v 1.1 2019-10-31 13:32:24-07 - - $
+d33 2
+a40 3
+
+AuthType Basic
+AuthName "$rootdir"
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk-htaccess.perl,v 1.9 2019-08-13 13:02:59-07 - - $
+d41 1
+a41 1
+AuthName "cats.ucsc.edu/courses"
+@

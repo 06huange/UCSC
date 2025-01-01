@@ -1,0 +1,94 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2020.08.22.19.48.29;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.08.22.19.47.36;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.08.22.19.46.37;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.08.22.19.43.05;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: HTML_Colors.test.perl,v 1.3 2020-08-22 12:47:36-07 - - $
+
+use HTML_Colors;
+my %COLOR = HTML_Colors;
+
+print "$0\n";
+printf "%-10s => %s\n", $_, $COLOR{$_} for sort keys %COLOR;
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: HTML_Colors.test.perl,v 1.2 2020-08-22 12:46:37-07 - - $
+d5 1
+a7 1
+my %COLOR = HTML_Colors;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 5
+# $Id: HTML_Colors.test.perl,v 1.1 2020-08-22 12:43:05-07 - - $
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+d6 1
+a7 1
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: HTML_Colors_test.perl,v 1.1 2020-08-22 12:42:36-07 - - $
+d4 1
+a4 1
+$0 =!~ s|.*/||;
+d10 3
+@

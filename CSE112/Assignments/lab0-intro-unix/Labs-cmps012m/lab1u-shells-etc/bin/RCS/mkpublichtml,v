@@ -1,0 +1,90 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2020.08.20.20.39.15;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.08.20.20.38.22;	author wmackey;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2019.10.31.20.32.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mkpublichtml,v 1.2 2020-08-20 13:38:22-07 wmackey Exp $
+
+self=$(basename $0)
+
+pwd=$(pwd)
+basename=$(basename $pwd)
+dirname=$(dirname $pwd)
+if [ $basename != public_html ]
+then
+   echo $self: run only in public_html directory
+   exit 1
+fi
+
+echo $self:
+mkheader
+ln -s .. :
+
+cat >README.html <<__END__
+<A HREF=:>
+Click here to get to the root of the course directory.
+</A>
+<P>
+If you receive a popup asking for a username and password:
+<PRE>
+ssh unix.ucsc.edu
+cd $dirname
+cat .htpasswd
+</PRE>
+The username is in that file.
+<BR>
+Leave the password field empty.
+__END__
+
+ls -la
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkpublichtml,v 1.1 2019-10-31 13:32:24-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk-public-html-readme.sh,v 1.4 2019-07-08 16:18:11-07 - - $
+@

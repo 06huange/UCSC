@@ -1,0 +1,29 @@
+
+Objective Caml links:
+
+The Objective Caml home page
+https://ocaml.org/
+
+Learn about OCaml
+https://ocaml.org/learn/
+
+OCaml Documentation
+https://ocaml.org/docs/
+
+Install OCaml
+https://ocaml.org/docs/install.html
+
+An Introduction to Objective Caml
+/afs/cats.ucsc.edu/courses/cse112-wm/Languages/ocaml/intro-ocaml-columbia/
+https://www2.ucsc.edu/courses/cse112-wm/:/Languages/ocaml/intro-ocaml-columbia/
+
+Think OCaml: How to Think Like a (Functional) Computer Scientist
+/afs/cats.ucsc.edu/courses/cse112-wm/Languages/ocaml/think-ocaml/
+https://www2.ucsc.edu/courses/cse112-wm/:/Languages/ocaml/think-ocaml/
+http://greenteapress.com/thinkocaml/
+
+Strict Typed Functional Programming in OCaml
+https://www2.ucsc.edu/courses/cse112-wm/:/Languages/ocaml/strict-typed-fnprog-ocaml/
+http://www.bromans.com/david/publ/ocaml-tutorial.pdf
+
+$Id: README.text,v 1.10 2020-01-22 16:19:04-08 - - $

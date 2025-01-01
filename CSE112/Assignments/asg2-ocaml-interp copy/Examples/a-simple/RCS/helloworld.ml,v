@@ -1,0 +1,28 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.01.26.08.11.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id: helloworld.ml,v 329.3 2014-11-17 13:49:14-08 - - $ *)
+
+Printf.printf "Hello, World!\n";;
+exit 0;;
+
+@

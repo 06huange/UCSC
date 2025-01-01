@@ -1,0 +1,83 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.04.10.00.56.34;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.10.00.56.04;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: thunk.scm,v 1.1 2021-04-09 17:56:04-07 - - $
+
+(define (f n)
+    (define (g n m)
+        (if (< n 1) m
+            (g (- n 1) (* n m))))
+    (g n 1))
+
+(define (fac n)
+    (let ((fn (f n)))
+    (printf "computed: (fac ~a) = ~a~n" n fn)
+    fn))
+
+(display (fac 16)) (newline)
+
+(display (fac 16)) (newline)
+
+(define thunk32 (delay (fac 32)))
+
+(display thunk32) (newline)
+
+(display (force thunk32)) (newline)
+
+(display (force thunk32)) (newline)
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id$
+d15 1
+a15 1
+(display (fac 32)) (newline)
+d17 1
+a17 1
+(display (fac 32)) (newline)
+d19 1
+a19 1
+(define thunk48 (delay (fac 48)))
+d21 1
+a21 1
+(display thunk48) (newline)
+d23 1
+a23 1
+(display (force thunk48)) (newline)
+d25 1
+a25 1
+(display (force thunk48)) (newline)
+@

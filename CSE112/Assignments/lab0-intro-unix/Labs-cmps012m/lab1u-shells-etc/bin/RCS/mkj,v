@@ -1,0 +1,141 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.6
+date	2020.08.21.00.14.02;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.08.21.00.06.55;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.08.20.20.39.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.08.20.20.38.22;	author wmackey;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.08.20.20.34.04;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.10.31.20.32.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mkj,v 1.5 2020-08-20 17:06:55-07 - - $
+#
+# NAME
+#    mkj - compile a java program into a jar
+#
+# SYNOPSIS
+#    mkj program.java...
+#
+# DESCRIPTION
+#    Compiles a java program into a jar.  The jarname must be
+#    the name of the main class and is taken from the first
+#    java file.
+#
+
+jar=$(echo $1 | sed 's/\.java//')
+cid -is $*
+javac $*
+if [ $? -ne 0 ] ; then exit $? ; fi
+echo Main-class: $jar >Manifest
+jar cfm $jar Manifest $(echo $* | sed 's/\.java/*.class/g')
+rm Manifest *.class
+chmod +x $jar
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkj,v 1.4 2020-08-20 13:39:15-07 - - $
+d16 1
+a16 1
+jar=qx(echo $1 | sed 's/\.java//')
+d21 1
+a21 1
+jar cfm $jar Manifest qx(echo $* | sed 's/\.java/*.class/g')
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkj,v 1.3 2020-08-20 13:38:22-07 wmackey Exp $
+d16 1
+a16 1
+jar=`echo $1 | sed 's/\.java//'`
+d21 1
+a21 1
+jar cfm $jar Manifest `echo $* | sed 's/\.java/*.class/g'`
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkj,v 1.2 2020-08-20 13:34:04-07 - - $
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkj,v 1.1 2019-10-31 13:32:24-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mkj,v 1.9 2009-10-27 20:12:29-07 - - $
+d17 1
+a17 1
+cid + $*
+@

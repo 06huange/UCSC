@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@; @;
+
+
+1.1
+date	2021.04.28.23.18.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(* $Id: curry-uncurry.ml,v 1.1 2021-04-28 13:38:50-07 - - $ *)
+
+let uncurry f (x, y) = f x y;;
+
+let curry f x y = f (x, y);;
+
+
+@

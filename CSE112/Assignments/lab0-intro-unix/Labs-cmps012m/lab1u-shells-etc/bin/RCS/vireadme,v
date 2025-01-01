@@ -1,0 +1,171 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.6
+date	2020.12.02.01.19.38;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.12.02.01.12.14;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.11.27.07.18.02;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.11.27.07.06.03;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.08.20.20.02.59;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.08.20.19.16.58;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@-
+@
+text
+@#!/bin/bash
+# $Id: vireadme,v 1.5 2020-12-01 17:12:14-08 - - $
+
+#
+# NAME
+#    Edit Readme.all.*.txt file for updaate
+#
+# SYNOPSIS
+#    vireadme [-n]
+#
+# DESCRIPTION
+#    Edit the Readme.all file for updates, check into RCS
+#    subdirectory, and make the HEADER files.
+#
+# OPTIONS
+#    -n  Suppress calling vi to edit.
+#
+
+script=$(basename $0)
+usage() {
+   echo Usage $script [-n]
+   exit 1
+}
+
+while getopts n opt; do
+   case $opt in
+      n) no_vim=1;;
+      ?) usage;;
+   esac
+done
+shift $(($OPTIND - 1))
+[ $# == 0 ] || usage
+
+pattern='Readme.all.*.txt'
+files=($pattern)
+count=${#files[@@]}
+
+if [ $count -ne 1 ]; then
+   echo $script: $count files found matching "$pattern"
+   exit 1
+fi
+
+file=${files[0]}
+[ -z "$no_vim" ] && vi $file
+
+cid -is $file
+mkreadme $file
+mkheader
+
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: vireadme,v 1.4 2020-11-26 23:18:02-08 - - $
+a47 5
+permission=Permission-codes*.html
+if [ -r $permission ]; then
+   ls -la $permission
+   cat $permission >>README.html
+fi
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: vireadme,v 1.3 2020-11-26 23:06:03-08 - - $
+d49 4
+a52 1
+[ -r $permission -a -r README.html ] && cat $permission >>README.html
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: vireadme,v 1.2 2020-11-26 23:02:26-08 - - $
+d49 1
+a49 6
+if [ -r $permission ]; then
+   { echo 0r $permission
+     echo w
+     echo q
+   } | vim -E README.html
+fi
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: vireadme,v 1.1 2020-08-20 12:16:58-07 - - $
+d48 7
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 49
+a49 2
+#!/bin/sh
+# $Id$
+@

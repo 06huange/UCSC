@@ -1,0 +1,152 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2021.04.07.23.07.22;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.07.23.07.08;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.07.23.06.50;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.01.05.29.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: evalexpr.scm,v 1.3 2021-04-07 16:07:08-07 - - $
+
+;;
+;; NAME
+;;    eval-apply examples of evaluating expressions.
+;;
+
+(define *functions* (make-hash))
+(for-each
+    (lambda (symfun) (hash-set! *functions* (car symfun) (cadr symfun)))
+    `(
+        (+    ,+)
+        (-    ,-)
+        (*    ,*)
+        (/    ,/)
+        (^    ,expt)
+        (sqrt ,sqrt)
+        (sqr  ,sqr)
+
+    ))
+
+(define *variables* (make-hash))
+(for-each
+    (lambda (varval)
+        (hash-set! *variables* (car varval) (cadr varval)))
+    `(
+        (pi    ,(acos -1))
+        (e     ,(exp 1))
+        (i     ,(sqrt -1))
+        (one   1.0)
+        (zero  0.0)
+    ))
+
+(define NAN (/ 0.0 0.0))
+
+(define (eval-expr expr)
+    (cond ((number? expr) (+ expr 0.0))
+          ((symbol? expr) (hash-ref *variables* expr 0.0))
+          ((pair? expr) 
+              (let ((func (hash-ref *functions* (car expr) #f))
+                    (opnds (map eval-expr (cdr expr))))
+                   (if (not func) NAN
+                       (apply func opnds))))
+          (else NAN)))
+
+(define (test expr)
+    (printf "expr: ~s~n" expr)
+    (printf "value: ~s~n" (eval-expr expr))
+    (newline))
+
+
+(test 3)
+(test 1/2)
+(test '(+ (* 3 4) (* 5 6)))
+(test '(+ (^ e (* i pi)) 1))
+(test '(/ zero zero))
+(test '(/ one zero))
+(test '(sqrt (+ (sqr 3) (sqr 4))))
+(test '(/ (+ 1) (+ 0)))
+
+(define (dump-hash hash_name)
+    (printf "~s:~n" hash_name)
+    (hash-for-each (eval hash_name)
+        (lambda (key value) (printf "    ~s: ~s~n" key value)) #t)
+    (newline))
+
+(dump-hash '*functions*)
+(dump-hash '*variables*)
+
+(printf "(display *variables*)~n")
+(display *variables*)
+(newline)
+
+;;TEST: evalexpr.scm
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.2 2021-04-07 16:06:50-07 - - $
+d73 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.1 2021-03-31 22:29:46-07 - - $
+d71 1
+a71 1
+(printf "(display *variables*~n)")
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: evalexpr.scm,v 1.13 2020-10-18 11:11:30-07 - - $
+d70 3
+@

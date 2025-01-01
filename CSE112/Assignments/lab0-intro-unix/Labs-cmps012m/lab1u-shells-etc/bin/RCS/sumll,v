@@ -1,0 +1,144 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.5
+date	2020.08.21.23.59.21;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.08.21.23.55.40;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.08.21.23.54.34;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.08.21.23.54.02;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.08.21.23.48.29;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: sumll,v 1.4 2020-08-21 16:55:40-07 - - $
+#
+# NAME
+#    sumll - find the sum of sizes of files output by ls -bgoa
+#
+# SYMOPSIS
+#    sumll [args...]
+#
+# DESCRIPTION
+#    Runs ls -bgoa on the arguments and prints the sum of all
+#    sizes from the output.
+#
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+
+my $command = "ls -bgoa @@ARGV";
+my $total = 0;
+open LS, "$command |" or die "$0: $command: $!\n";
+while (<LS>) {
+   print;
+   my @@line = split ' ';
+   next unless @@line >=  2;
+   next unless $line[1] =~ m/^\d+$/;
+   $total += $&;
+}
+close LS;
+
+my $K = 1<<10;
+printf "$0: command: $command\n";
+printf "total = %10.0f\n", $total;
+printf "total = %12.0.1f KiB\n", $total / $K;
+printf "total = %12.0.1f MiB\n", $total / $K / $K;
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: sumll,v 1.3 2020-08-21 16:54:34-07 - - $
+d32 4
+a35 3
+printf "total = %.0f\n", $total;
+printf "total = %.1f KiB\n", $total / $K;
+printf "total = %.1f MiB\n", $total / $K / $K;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: sumll,v 1.2 2020-08-21 16:54:02-07 - - $
+d25 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: sumll,v 1.1 2020-08-21 16:48:29-07 - - $
+d24 1
+a24 1
+   my $line = split ' ';
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d20 1
+d22 1
+a22 5
+@@data = <LS>;
+close LS;
+
+my $total = 0;
+while (@@data) {
+d24 1
+a24 1
+   my @@line = split ' ';
+d28 6
+@

@@ -1,0 +1,46 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2021.03.04.02.53.11;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@
+Binding time:  static or dynamic.
+
+Static:
+
+1. language definition time (reference manual)
+
+2. language implementation time (writing the compiler/interpreter)
+
+3. translation time (from C/C++/Ocaml to object file)
+
+4. link time (combining object files into executable binary)
+
+Dynamic:
+
+5. execution (loading program into CPU as a process)
+   maybe using a dynamic link library
+
+6. initialization before main function is called
+
+7. binding addresses or values by any function
+
+$Id$
+@

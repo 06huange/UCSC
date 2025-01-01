@@ -1,0 +1,4 @@
+PWD: /afs/cats.ucsc.edu/courses/cse112-wm/Lecture-notes/EWD
+URL: https://www2.ucsc.edu/courses/cse112-wm/:/Lecture-notes/EWD/
+HEADER: HEADER.txt
+README: README.txt,v 1.1 2021-01-22 11:16:34-08

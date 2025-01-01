@@ -1,0 +1,31 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2021.03.04.19.44.15;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id$
+
+cid -is $0 *.perl
+
+dynamic-scope.perl >dynamic-scope.out
+static-scope.perl >static-scope.out
+
+@

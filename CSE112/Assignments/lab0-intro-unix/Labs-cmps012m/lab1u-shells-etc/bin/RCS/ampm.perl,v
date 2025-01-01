@@ -1,0 +1,122 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.5
+date	2021.04.10.23.43.52;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.10.23.43.43;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.10.23.14.48;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.10.23.07.55;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.10.23.06.31;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: ampm.perl,v 1.4 2021-04-10 16:43:43-07 - - $
+
+$0 =~ s|.*/||;
+use POSIX qw (strftime);
+
+@@localtime = (0,0,0,0,0,0,0,0,0,);
+
+for $hour (0..23) {
+   $localtime[2] = $hour;
+   $ampm = strftime "%I:%M %p", @@localtime;
+   $ampm =~ s/^0/ /;
+   $table[$hour] = strftime "%H:%M = $ampm", @@localtime;
+}
+
+for $hour (0..11) {
+   print "$table[$hour]    $table[$hour + 12]\n";
+}
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: ampm.perl,v 1.3 2021-04-10 16:14:48-07 - - $
+d17 1
+a17 1
+   print "$table[$hour]   $table[$hour + 12]\n";
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: ampm.perl,v 1.2 2021-04-10 16:07:55-07 - - $
+d13 1
+a13 1
+   $table[$hour % 12] .= strftime "   %H:%M = $ampm", @@localtime;
+d16 3
+a18 2
+print "$_\n" for @@table;
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: ampm.perl,v 1.1 2021-04-10 16:06:31-07 - - $
+d13 1
+a13 1
+   print strftime "%H:%M = $ampm\n", @@localtime;
+d15 3
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d11 3
+a13 1
+   print strftime "%H:%M = %I:%M %p\n", @@localtime;
+@

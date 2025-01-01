@@ -1,0 +1,92 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2021.04.01.21.40.40;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.01.21.40.11;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.01.21.26.34;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: stack-tail-usage.scm,v 1.2 2021-04-01 14:40:11-07 - - $
+
+;;
+;; Blow the stack by infinite recursion.  This function is not
+;; a tail call.
+;;
+
+(define args (vector->list (current-command-line-arguments)))
+(define want-tail-rec (not (null? args)))
+
+(define million (exact-round 1e6))
+(define MiB (expt 2 20))
+
+(define (force-non-tail x) (null? x))
+
+(define (recur count)
+    (define (mem-use-mib)
+        (truncate (/ (current-memory-use) MiB)))
+    (when (= (remainder count million) 0)
+          (printf "mem ~a MiB, count ~ae6, tail-rec ~a~n"
+                  (mem-use-mib) (/ count million)
+                  (if want-tail-rec 'yes 'no)))
+    (let ((next (+ 1 count)))
+         (if want-tail-rec
+             (recur next)
+             (force-non-tail (recur next)))))
+
+(recur 0)
+
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: stack-tail-usage.scm,v 1.1 2021-04-01 14:26:34-07 - - $
+d23 1
+a23 1
+                  (if want-tail-rec yes no)))
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: stack-tail-usage.scm,v 1.1 2021-04-01 14:22:54-07 - - $
+d23 1
+a23 1
+                  want-tail-rec))
+@

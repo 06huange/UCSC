@@ -1,0 +1,67 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.01.26.21.02.01;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.01.26.20.57.20;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: ocaml-expect.perl,v 1.1 2021-01-26 12:57:20-08 - - $
+
+# Expect script which runs ocaml interactively with data
+# from STDIN, showing interactive transacript.
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+
+my $expect = "| expect 2>&1";
+open EXPECT, $expect or die "$0: open $expect: $!\n";
+print EXPECT "spawn ocaml\n";
+
+while (my $line = <>) {
+   next if $line =~ m/^#!/;
+   chomp $line;
+   $line =~ s/[\[\]\$"]/\\$&/g;
+   print EXPECT "expect \"(# |  )\"\n";
+   print EXPECT "send -- \"$line\\n\"\n";
+}
+
+close EXPECT;
+print "\n";
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: gst-expect.perl,v 1.2 2020-09-07 22:53:44-07 - - $
+d19 1
+a19 1
+   print EXPECT "expect \"# \"\n";
+@

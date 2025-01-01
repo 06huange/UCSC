@@ -1,0 +1,160 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.6
+date	2020.10.08.01.11.07;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.10.08.01.00.19;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.15.00.05.58;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.15.00.00.19;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.14.23.53.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.01.15.22.49.04;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@-
+@
+text
+@#!/afs/cats.ucsc.edu/courses/cse112-wm/usr/racket/bin/mzscheme -qr
+;; $Id: argv.scm,v 1.5 2020-10-07 18:00:19-07 - - $
+
+(define *run-file*
+    (let-values
+        (((dirname basename dir?)
+            (split-path (find-system-path 'run-file))))
+        (path->string basename))
+)
+
+(define *arg-list* (vector->list (current-command-line-arguments)))
+
+(let-values
+    (((dirname basename root?)
+        (split-path (find-system-path 'run-file))))
+    (printf "dirname: ~a~n" dirname)
+    (printf "basename: ~a~n" basename)
+    (printf "root?: ~a~n" root?)
+)
+
+(printf "*run-file*: ~a~n" *run-file*)
+(for-each (lambda (x) (printf "arg: ~a~n" x))  *arg-list*)
+
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: argv.scm,v 1.4 2020-01-14 16:05:58-08 - - $
+d6 1
+a6 1
+        (((dirpath basepath root?)
+d8 1
+a8 1
+        (path->string basepath))
+d14 1
+a14 1
+    (((dirpath basepath root?)
+d16 2
+a17 2
+    (printf "dirpath: ~a~n" dirpath)
+    (printf "basepath: ~a~n" basepath)
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: argv.scm,v 1.3 2020-01-14 16:00:19-08 - - $
+d11 9
+a19 2
+(define (println arg)
+    (printf "~a~n" arg))
+d21 2
+a22 1
+(define *arg-list* (vector->list (current-command-line-arguments)))
+a23 2
+(println *run-file*)
+(for-each println *arg-list*)
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: argv.scm,v 1.2 2020-01-14 15:53:19-08 - - $
+d11 2
+a12 1
+(define *arg-list* (vector->list ((current-command-line-arguments)))
+d14 4
+a17 2
+(display *run-file*)
+(for-each (lambda (item) (printf "~s~n" item) *arg-list*)
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+;; $Id: argv.scm,v 1.1 2019-01-15 14:49:04-08 - - $
+d4 11
+a14 1
+(display argv)
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 2
+a2 2
+#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/racket/bin/mzscheme -qr
+;; $Id$
+@

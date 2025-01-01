@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2020.12.01.01.29.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh -x
+cid *.ml *.scm $0
+for file in *.ml
+do
+   cid $file
+   ocamlc -i $file >$file.types
+#  mkpspdf $file.ps $file $file.types
+done
+
+@

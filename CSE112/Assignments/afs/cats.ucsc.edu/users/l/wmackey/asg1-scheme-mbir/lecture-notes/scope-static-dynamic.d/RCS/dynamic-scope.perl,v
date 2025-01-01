@@ -1,0 +1,133 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2021.03.04.19.08.12;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.03.04.18.47.02;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.03.04.02.47.34;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.03.04.02.46.49;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Id: dynamic-scope.perl,v 1.3 2021-03-04 10:47:02-08 - - $
+
+# Perl program with static scoping.
+
+sub display {
+   my ($line, $xx, $yy) = @@_;
+   my @@callers;
+   for (my $i = 1;; ++$i) {
+      my @@call = caller ($i);
+      last unless @@call;
+      $call[3] =~ s/main:://;
+      unshift @@callers, "$call[3]($call[2])";
+   }
+   print "Line $line x=$xx, y=$yy :@@callers\n";
+}
+
+local $x = 1;
+local $y = 2;
+
+sub foo {
+   display __LINE__, $x, $y;
+   local $x = 3;
+   display __LINE__, $x, $y;
+   {
+      local $y = 4;
+      display __LINE__, $x, $y;
+   }
+   display __LINE__, $x, $y;
+}
+
+sub bar {
+   display __LINE__, $x, $y;
+   local $y = 5;
+   display __LINE__, $x, $y;
+   foo();
+   display __LINE__, $x, $y;
+}
+
+sub main {
+   display __LINE__, $x, $y;
+   local $x = 6;
+   display __LINE__, $x, $y;
+   bar();
+   display __LINE__, $x, $y;
+}
+
+display __LINE__, $x, $y;
+main();
+display __LINE__, $x, $y;
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: dynamic-scope.perl,v 1.2 2021-03-03 18:47:34-08 - - $
+d8 8
+a15 3
+   my @@caller = caller (1);
+   $caller[3] =~ s/main::/$1/;
+   print "$caller[3]: $line x=$xx, y=$yy\n";
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: dynamic-scope.perl,v 1.1 2021-03-03 18:46:49-08 - - $
+d9 1
+a9 1
+   $caller[3] =~ s/main::(.*)/$1()/;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: static-scope.perl,v 1.1 2021-03-03 18:15:41-08 - - $
+a4 2
+
+use strict;
+@

@@ -1,0 +1,8 @@
+#!/bin/sh
+# $Id: mk,v 1.1 2021-03-04 11:44:15-08 - - $
+
+cid -is $0 *.perl
+
+dynamic-scope.perl >dynamic-scope.out
+static-scope.perl >static-scope.out
+

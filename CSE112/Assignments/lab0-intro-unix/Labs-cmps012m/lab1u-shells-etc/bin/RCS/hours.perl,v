@@ -1,0 +1,165 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2021.04.07.22.49.02;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.02.18.23.50.47;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.01.16.02.39.40;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.01.15.16.09.12;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/usr/bin/perl
+# $Ie$
+#
+# NAME
+#    hours.perl - compute differences in times
+#
+# SYNOPSIS
+#    hours.perl timespec...
+#
+# DESCRIPTION
+#    Given a list of time specs on the command line, compute
+#    the sum or diffferences between time specs.
+#
+# SYNTAX
+#    timespec : H?H:MM +- minutes | H?H:MM +- H?H:MM
+#
+
+$0 =~ s|.*/||;
+use strict;
+use warnings;
+
+sub minutes($$) {
+   my ($hour, $min) = @@_;
+   return $hour * 60 + $min;
+}
+
+sub hhmm($) {
+   my ($timemin) = @@_;
+   my $hour = int ($timemin / 60);
+   my $min = $timemin - $hour * 60;
+   return sprintf "%02d:%02d", $hour, $min;
+}
+
+sub timespec($) {
+   my ($spec) = @@_;
+   if ($spec =~ m/^\s*(\d+):(\d\d)\s*([+-])\s*(\d+)\s*$/) {
+      # HH:MM+min, HH:MM-min
+      my ($hour, $min, $posneg, $deltamin) = ($1, $2, $3, $4);
+      my $startmin = minutes $hour, $min;
+      my $endmin = $startmin + "$posneg$deltamin";
+      printf "%s + %d min = %s\n",
+             hhmm $startmin, $deltamin, hhmm $endmin;
+   }elsif ($spec =~ m/^\s*(\d+):(\d\d)\s*([+-])\s*(\d+):(\d\d)\s*$/) {
+      my ($hour1, $min1, $posneg, $hour2, $min2) = ($1, $2, $3, $4, $5);
+      my $minutes1 = minutes $hour1, $min1;
+      my $minutes2 = minutes $hour2, $min2;
+      my $deltamin = $minutes1 + "$posneg$minutes2";
+      printf "%s $posneg %s = %3d min = %s\n",
+             hhmm $minutes1, hhmm $minutes2, $deltamin, hhmm $deltamin;
+   }else {
+      print STDERR "$0: $spec: invalid timespec\n";
+      print STDERR "timespec : H?H:MM + minutes | H?H:MM - H?H:MM\n";
+   }
+}
+
+if (@@ARGV) {
+   timespec $_ for @@ARGV;
+}else {
+   print "Usage: $0 timespec...\n";
+   print STDERR "timespec : H?H:MM + minutes | H?H:MM - H?H:MM\n";
+   exit 1;
+}
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d15 1
+a15 1
+#    timespec : H?H:MM + minutes | H?H:MM - H?H:MM
+@
+
+
+1.2
+log
+@-
+@
+text
+@d36 3
+a38 2
+   if ($spec =~ m/^\s*(\d+):(\d\d)\s*\+\s*(\d+)\s*$/) {
+      my ($hour, $min, $deltamin) = ($1, $2, $3);
+d40 1
+a40 1
+      my $endmin = $startmin + $deltamin;
+d43 2
+a44 2
+   }elsif ($spec =~ m/^\s*(\d+):(\d\d)\s*--?\s*(\d+):(\d\d)\s*$/) {
+      my ($hour1, $min1, $hour2, $min2) = ($1, $2, $3, $4);
+d47 3
+a49 6
+      if ($minutes1 < $minutes2) {
+         ($minutes1, $minutes2) = ($minutes2, $minutes1);
+      }
+      my $deltamin = $minutes1 - $minutes2;
+      printf "%s - %s = %3d min\n",
+             hhmm $minutes1, hhmm $minutes2, $deltamin;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d8 1
+a8 1
+#    hours.perl [timespec...]
+d12 1
+a12 3
+#    the sum or diffferences between time specs.  Use @@ARGV 
+#    if given, else read each spec from STDIN, one line for
+#    each timespec.
+d42 1
+a42 1
+   }elsif ($spec =~ m/^\s*(\d+):(\d\d)\s*-\s*(\d+):(\d\d)\s*$/) {
+d53 2
+a54 1
+      print STDERR "$0: $spec: invalid sum or diffeence]n";
+d61 3
+a63 1
+   timespec $_ while <>;
+d65 1
+@

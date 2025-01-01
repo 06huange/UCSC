@@ -1,0 +1,15 @@
+Eagle Huang
+CSE102 Programming Assignment
+
+Minimum Weight Spanning Tree Solver
+
+The program takes a weighted undirected graph as input and uses Kruskal's
+algorithm to find the mwst for the graph and outputs it to the output file.
+
+Union by Rank is used to check if a cycle exists in the graph.
+
+Files Included:
+mwstSolver.cpp
+
+Note: Union by Rank code snippets were borrowed from the "Kruskal's Algorithm" page on Geeksforgeeks
+as well as qsort().
